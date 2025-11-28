@@ -4,37 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIIT + Calistenia | Tu Mejor Versión</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Chosen Palette: Warm Neutrals & Energetic Orange -->
-    <!-- Application Structure Plan:
-         1. Hero Section: High impact title and subtitle to capture attention immediately (Slide 1).
-         2. The Formula (Analysis): A conceptual Radar Chart visualization comparing HIIT+Calistenia benefits vs traditional methods, translating the "Results 3X" claim into visual data (Slide 2).
-         3. Benefits Hub (Interactive): A tabbed interface to switch between Physical and Mental benefits, reducing cognitive load (Slides 3 & 4).
-         4. Methodology (Process): A vertical timeline step-by-step view of the class structure (Slide 6).
-         5. Gemini Feature (Interactive LLM): New section allowing users to generate a sample express routine based on their constraints, validating the service's flexibility promise.
-         6. Dynamic Schedule (Filter): A toggle to switch between "Presencial" (Table) and "Online" (Feature List) to handle the different data formats cleanly (Slides 7 & 8).
-         7. Plans & Pricing (Comparison): Pricing cards with a clear visual hierarchy for the recommended plan (Slide 9).
-         8. Instructor & Policies (Info): A profile section followed by an accordion for detailed policies to keep the layout clean (Slides 5 & 10).
-         9. Final CTA (Conversion): Sticky/Bottom section with Contact info and mock QRs (Slides 11 & 12).
-    -->
-    
-    <!-- Visualization & Content Choices:
-         1. Radar Chart (Chart.js): Visualizing "Why Choose This Formula". Goal: Show the multi-dimensional benefits (Strength, Cardio, Mind, Time). Interaction: Hover for values. Justification: Textual claims of "3x results" are better perceived as an area coverage on a radar chart.
-         2. Tabbed Content: Physical vs Mental Benefits. Goal: Organize dense lists. Interaction: Click tabs to swap content. Justification: Prevents scrolling fatigue.
-         3. Toggle Switch: Schedule/Online. Goal: Compare modes. Interaction: Toggle view. Justification: Users usually have a preference, showing both at once clutters the UI.
-         4. Interactive Pricing: Hover effects. Goal: Focus attention on the 'Recommended' plan.
-         5. LLM Routine Generator (JS/Fetch/Gemini): Goal: Showcase personalization and flexibility. Interaction: Select inputs and click button. Justification: Directly addresses the core value proposition of the service.
-         
-         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
-    -->
 
     <style>
         body {
@@ -93,7 +66,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Navigation -->
     <nav class="bg-stone-900 text-white sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="brand-font text-3xl text-orange-500 tracking-wider">ESPACIO INYO ☯️</div>
@@ -103,7 +75,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="relative bg-stone-900 text-white overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80')] bg-cover bg-center opacity-20"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-stone-900"></div>
@@ -123,7 +94,6 @@
         </div>
     </header>
 
-    <!-- Section 1: The Formula (Data Viz) -->
     <section id="formula" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -134,7 +104,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Explainer Text -->
                 <div class="space-y-8">
                     <div class="flex items-start gap-4">
                         <div class="bg-orange-100 p-4 rounded-xl text-orange-600">
@@ -160,7 +129,6 @@
                     </div>
                 </div>
 
-                <!-- Visualization -->
                 <div>
                     <div class="chart-container">
                         <canvas id="formulaChart"></canvas>
@@ -171,7 +139,6 @@
         </div>
     </section>
 
-    <!-- Section 2: Benefits Hub (Interactive Tabs) -->
     <section id="benefits" class="py-16 bg-stone-100">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
@@ -179,7 +146,6 @@
                 <p class="text-xl text-stone-600">Explora cómo transformamos tu cuerpo y tu mente.</p>
             </div>
 
-            <!-- Tabs -->
             <div class="flex justify-center mb-8 border-b-2 border-stone-200 max-w-md mx-auto">
                 <button id="btn-physical" onclick="switchBenefit('physical')" class="w-1/2 py-4 text-2xl brand-font active-tab transition-all">
                     FÍSICO & ENERGÍA
@@ -189,14 +155,11 @@
                 </button>
             </div>
 
-            <!-- Content Area -->
             <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8 md:p-12 min-h-[400px] transition-all duration-500" id="benefit-content">
-                <!-- Content injected via JS -->
-            </div>
+                </div>
         </div>
     </section>
 
-    <!-- Section 3: Methodology (Timeline) -->
     <section id="method" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -205,10 +168,8 @@
             </div>
 
             <div class="relative max-w-4xl mx-auto">
-                <!-- Vertical Line -->
                 <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-stone-200 transform md:-translate-x-1/2"></div>
 
-                <!-- Phase 1 -->
                 <div class="relative flex flex-col md:flex-row items-center mb-12">
                     <div class="flex-1 md:text-right pr-0 md:pr-12 mb-4 md:mb-0 w-full pl-20 md:pl-0">
                         <h3 class="text-3xl text-orange-600">1. INICIAL (CONEXIÓN)</h3>
@@ -220,7 +181,6 @@
                     <div class="flex-1 pl-0 md:pl-12 w-full hidden md:block"></div>
                 </div>
 
-                <!-- Phase 2 -->
                 <div class="relative flex flex-col md:flex-row items-center mb-12">
                     <div class="flex-1 md:text-right pr-12 hidden md:block"></div>
                     <div class="absolute left-2 md:left-1/2 w-12 h-12 bg-orange-500 rounded-full border-4 border-white z-10 flex items-center justify-center text-white font-bold transform md:-translate-x-1/2 shadow-md">
@@ -232,7 +192,6 @@
                     </div>
                 </div>
 
-                <!-- Phase 3 -->
                 <div class="relative flex flex-col md:flex-row items-center">
                     <div class="flex-1 md:text-right pr-0 md:pr-12 mb-4 md:mb-0 w-full pl-20 md:pl-0">
                         <h3 class="text-3xl text-orange-600">3. FINAL (STRETCHING)</h3>
@@ -247,7 +206,6 @@
         </div>
     </section>
     
-    <!-- Section 3.5: Gemini Feature - Express Routine Assistant -->
     <section id="gemini-assistant" class="py-16 bg-stone-100">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-12">
@@ -255,13 +213,12 @@
                     ASISTENTE DE RUTINA EXPRESS ✨
                 </h2>
                 <p class="text-xl text-stone-600 max-w-3xl mx-auto">
-                    ¿Poco tiempo? ¡Compruébalo! La IA te muestra el nivel de personalización que recibirás al inscribirte.
+                    ¿Poco tiempo? ¡Compruébalo! La IA te muestra el nivel de personalización que recibirás al inscribirte. (Simulación de IA)
                 </p>
             </div>
 
             <div class="bg-white p-8 rounded-3xl shadow-xl">
                 <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <!-- Input 1: Tiempo -->
                     <div class="flex flex-col">
                         <label for="input-time" class="font-bold text-sm mb-2 text-stone-700">TIEMPO DISPONIBLE</label>
                         <select id="input-time" class="p-3 border border-stone-300 rounded-lg bg-white focus:ring-orange-500 focus:border-orange-500 text-lg">
@@ -271,7 +228,6 @@
                         </select>
                     </div>
 
-                    <!-- Input 2: Equipo -->
                     <div class="flex flex-col">
                         <label for="input-equipment" class="font-bold text-sm mb-2 text-stone-700">ELEMENTOS/EQUIPO</label>
                         <select id="input-equipment" class="p-3 border border-stone-300 rounded-lg bg-white focus:ring-orange-500 focus:border-orange-500 text-lg">
@@ -282,7 +238,6 @@
                         </select>
                     </div>
 
-                    <!-- Input 3: Enfoque -->
                     <div class="flex flex-col">
                         <label for="input-focus" class="font-bold text-sm mb-2 text-stone-700">OBJETIVO / ENFOQUE</label>
                         <select id="input-focus" class="p-3 border border-stone-300 rounded-lg bg-white focus:ring-orange-500 focus:border-orange-500 text-lg">
@@ -297,7 +252,6 @@
                     <i class="fa-solid fa-wand-magic-sparkles"></i> GENERAR RUTINA DE MUESTRA ✨
                 </button>
                 
-                <!-- Output Area -->
                 <div id="routine-output" class="mt-8 pt-6 border-t border-stone-200">
                     <p class="text-stone-500 italic text-center" id="output-placeholder">
                         Selecciona tus opciones y haz clic para generar tu rutina express personalizada.
@@ -307,13 +261,11 @@
         </div>
     </section>
 
-    <!-- Section 4: Schedule & Online (Toggle) -->
     <section id="schedule" class="py-16 bg-stone-900 text-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col items-center mb-12">
                 <h2 class="text-5xl mb-6">TU GIMNASIO, TUS REGLAS</h2>
                 
-                <!-- Toggle Switch -->
                 <div class="bg-stone-800 p-1 rounded-full flex">
                     <button id="btn-mode-presencial" onclick="toggleSchedule('presencial')" class="px-8 py-2 rounded-full bg-orange-600 text-white font-bold transition shadow-lg">
                         PRESENCIAL
@@ -324,7 +276,6 @@
                 </div>
             </div>
 
-            <!-- Presencial View -->
             <div id="view-presencial" class="max-w-3xl mx-auto transition-opacity duration-300">
                 <div class="bg-stone-800 rounded-2xl p-8 shadow-2xl border border-stone-700">
                     <div class="text-center mb-6">
@@ -345,4 +296,433 @@
                                     <td class="py-4 px-4 text-right font-bold text-orange-400">8:30 HS</td>
                                 </tr>
                                 <tr class="border-b border-stone-700 hover:bg-stone-700/50 transition">
-                                    <td class="py-4 px-4">Lunes - Martes - Juev
+                                    <td class="py-4 px-4">Lunes - Martes - Jueves</td>
+                                    <td class="py-4 px-4 text-right font-bold text-orange-400">18:00 HS</td>
+                                </tr>
+                                <tr class="hover:bg-stone-700/50 transition">
+                                    <td class="py-4 px-4">Miércoles - Viernes</td>
+                                    <td class="py-4 px-4 text-right font-bold text-orange-400">19:00 HS</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-online" class="hidden max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-stone-800 p-8 rounded-2xl border border-stone-700">
+                    <h3 class="text-3xl text-orange-400 mb-4"><i class="fa-solid fa-laptop mb-2 block text-4xl"></i> MISMO VALOR, MÁS LIBERTAD</h3>
+                    <p class="text-lg text-stone-300">Accede a rutinas completas diseñadas para tu entorno. Ideal para viajes, horarios complicados o días de lluvia.</p>
+                </div>
+                <div class="bg-stone-800 p-8 rounded-2xl border border-stone-700">
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-clock text-orange-500 mt-1"></i>
+                            <div>
+                                <strong class="text-white">TIEMPO:</strong> Rutinas de 15, 30 o 45/60 min.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-dumbbell text-orange-500 mt-1"></i>
+                            <div>
+                                <strong class="text-white">RECURSOS:</strong> Con o sin elementos, espacio reducido (2x2m).
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-volume-xmark text-orange-500 mt-1"></i>
+                            <div>
+                                <strong class="text-white">AMBIENTE:</strong> Adaptamos ejercicios para ser silenciosos.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-bullseye text-orange-500 mt-1"></i>
+                            <div>
+                                <strong class="text-white">OBJETIVOS:</strong> Recuperación (4-12 min) o Correr.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 bg-orange-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl text-stone-800">ELIGE TU PLAN</h2>
+                <p class="text-xl text-stone-600">Noviembre / Diciembre</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-3xl text-stone-600 mb-2">INICIAL</h3>
+                    <div class="text-5xl font-bold text-stone-900 mb-4">$43.000</div>
+                    <p class="text-stone-500 mb-6 font-bold">2 Veces x Semana</p>
+                    <ul class="text-stone-600 space-y-3 mb-8">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> 8 Clases Mensuales</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Seguimiento Semanal</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Acceso Rutinas Online</li>
+                    </ul>
+                    <a href="#contact" class="block text-center w-full py-3 border-2 border-stone-200 rounded-xl font-bold text-stone-600 hover:bg-stone-100 transition">ELEGIR</a>
+                </div>
+
+                <div class="bg-stone-900 text-white p-10 rounded-3xl shadow-2xl relative transform scale-105 z-10">
+                    <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl">RECOMENDADO</div>
+                    <h3 class="text-4xl text-orange-400 mb-2">PRO</h3>
+                    <div class="text-6xl font-bold text-white mb-4">$47.500</div>
+                    <p class="text-stone-400 mb-6 font-bold">3 Veces x Semana</p>
+                    <ul class="text-stone-300 space-y-3 mb-8 text-lg">
+                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> 12 Clases Mensuales</li>
+                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Seguimiento Semanal</li>
+                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Recuperación & Stretching</li>
+                        <li><i class="fa-solid fa-star text-orange-500 mr-2"></i> Máximos Resultados</li>
+                    </ul>
+                    <a href="#contact" class="block text-center w-full py-4 bg-orange-600 rounded-xl font-bold text-white hover:bg-orange-700 transition shadow-lg shadow-orange-600/30">ELEGIR PRO</a>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-3xl text-stone-600 mb-2">FULL</h3>
+                    <div class="text-5xl font-bold text-stone-900 mb-4">$66.000</div>
+                    <p class="text-stone-500 mb-6 font-bold">5 Días (Presencial/Online)</p>
+                    <ul class="text-stone-600 space-y-3 mb-8">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Diario (Lunes a Viernes)</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Modalidad Híbrida</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Personalización Total</li>
+                    </ul>
+                    <a href="#contact" class="block text-center w-full py-3 border-2 border-stone-200 rounded-xl font-bold text-stone-600 hover:bg-stone-100 transition">ELEGIR FULL</a>
+                </div>
+
+            </div>
+
+            <div class="max-w-4xl mx-auto mt-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl p-8 text-white text-center shadow-xl">
+                <h3 class="text-4xl font-bold mb-2">CLASE DE PRUEBA: $17.000</h3>
+                <p class="text-xl opacity-90">Valor descontable del total si te inscribes al mes completo. ¡Sin riesgos!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="flex flex-col md:flex-row items-center gap-8 mb-12">
+                <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-orange-500 shadow-xl flex-shrink-0">
+                    <img src="https://ui-avatars.com/api/?name=Gaston+Burgos&background=1c1917&color=f97316&size=200" alt="Gastón Burgos" class="w-full h-full object-cover">
+                </div>
+                <div class="text-center md:text-left">
+                    <h2 class="text-5xl text-stone-800">GASTÓN BURGOS</h2>
+                    <h3 class="text-2xl text-orange-600 mb-4">Instructor en Calistenia & Terapeuta</h3>
+                    <p class="text-stone-600 text-lg">
+                        "Mi objetivo es guiar tu entrenamiento valorando tus posibilidades físicas y tu salud integral. 
+                        Combino la intensidad del HIIT con la sabiduría biomecánica de la calistenia."
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+                        <span class="bg-stone-100 px-3 py-1 rounded-full text-sm font-bold text-stone-600">Apto Médico Requerido</span>
+                        <span class="bg-stone-100 px-3 py-1 rounded-full text-sm font-bold text-stone-600">Clases Personalizadas Disponibles</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-stone-200 rounded-xl overflow-hidden">
+                <div class="border-b border-stone-200">
+                    <button onclick="toggleAccordion('policy-payment')" class="w-full px-6 py-4 text-left flex justify-between items-center bg-stone-50 hover:bg-stone-100 transition">
+                        <span class="font-bold text-xl text-stone-800"><i class="fa-solid fa-credit-card mr-3 text-orange-500"></i> Pagos y Recargos</span>
+                        <i id="icon-policy-payment" class="fa-solid fa-chevron-down text-stone-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="policy-payment" class="max-h-0 overflow-hidden transition-all duration-500 px-6 text-stone-600">
+                        <div class="py-4">
+                            <p class="mb-2">La cuota se abona del <strong>1 al 5 de cada mes</strong>, o en tu fecha de inicio.</p>
+                            <p class="text-red-500"><i class="fa-solid fa-circle-exclamation mr-1"></i> Se aplica un recargo del 20% si se abona fuera de término y el lugar podría liberarse.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button onclick="toggleAccordion('policy-absence')" class="w-full px-6 py-4 text-left flex justify-between items-center bg-stone-50 hover:bg-stone-100 transition">
+                        <span class="font-bold text-xl text-stone-800"><i class="fa-solid fa-rotate-left mr-3 text-orange-500"></i> Ausencias y Recuperaciones</span>
+                        <i id="icon-policy-absence" class="fa-solid fa-chevron-down text-stone-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="policy-absence" class="max-h-0 overflow-hidden transition-all duration-500 px-6 text-stone-600">
+                        <div class="py-4">
+                            <p>Puedes recuperar las clases que faltaste <strong>únicamente dentro del mes abonado</strong>. No son transferibles al mes siguiente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-stone-900 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-6xl mb-8">CONÉCTATE Y COMIENZA</h2>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-12 mb-12">
+                <div class="text-center">
+                    <i class="fa-solid fa-location-dot text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold">ESPACIO INYO ☯️</h3>
+                    <p class="text-stone-400">Carlos Tejedor 335<br>Lanús Oeste Centro</p>
+                </div>
+                
+                <div class="text-center">
+                    <i class="fa-brands fa-whatsapp text-4xl text-green-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold">WHATSAPP</h3>
+                    <p class="text-stone-400 text-2xl">11 7619-4825</p>
+                    <a href="mailto:gastburgos@hotmail.com" class="text-orange-400 hover:text-orange-300 mt-2 block">gastburgos@hotmail.com</a>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-8">
+                <div class="bg-white p-4 rounded-xl w-40 h-40 flex flex-col items-center justify-center text-stone-900">
+                    <i class="fa-solid fa-qrcode text-6xl mb-2 text-stone-800"></i>
+                    <span class="font-bold text-sm">WHATSAPP</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl w-40 h-40 flex flex-col items-center justify-center text-stone-900">
+                    <i class="fa-solid fa-qrcode text-6xl mb-2 text-stone-800"></i>
+                    <span class="font-bold text-sm">INSTAGRAM</span>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-stone-600 text-sm">
+                &copy; 2024 Espacio Inyo - HIIT Calistenia. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const contentData = {
+            physical: `
+                <div class="grid md:grid-cols-3 gap-8 text-center animate-fade-in">
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">FUERZA SÓLIDA</h4>
+                        <p class="text-stone-600">Desarrolla músculos magros y aprende habilidades de calistenia.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">METABOLISMO 24/7</h4>
+                        <p class="text-stone-600">Quema calorías hasta 48hs después de entrenar (Efecto EPOC).</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-battery-full"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">VITALIDAD</h4>
+                        <p class="text-stone-600">Despídete de la fatiga crónica. Aumenta tu energía diaria.</p>
+                    </div>
+                </div>
+            `,
+            mental: `
+                <div class="grid md:grid-cols-3 gap-8 text-center animate-fade-in">
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-stone-200 text-stone-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">CONTROL ESTRÉS</h4>
+                        <p class="text-stone-600">Tu mejor terapia. Incluye recuperación anti-fatiga.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-stone-200 text-stone-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">POSTURA</h4>
+                        <p class="text-stone-600">Corrige malos hábitos y previene lesiones.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-stone-200 text-stone-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">COMUNIDAD</h4>
+                        <p class="text-stone-600">Entrena con apoyo real en Espacio INYO ☯️.</p>
+                    </div>
+                </div>
+            `
+        };
+
+        function switchBenefit(type) {
+            const contentDiv = document.getElementById('benefit-content');
+            
+            contentDiv.style.opacity = '0';
+            
+            setTimeout(() => {
+                contentDiv.innerHTML = contentData[type];
+                contentDiv.style.opacity = '1';
+            }, 300);
+
+            const btnPhys = document.getElementById('btn-physical');
+            const btnMent = document.getElementById('btn-mental');
+
+            if(type === 'physical') {
+                btnPhys.classList.replace('inactive-tab', 'active-tab');
+                btnMent.classList.replace('active-tab', 'inactive-tab');
+            } else {
+                btnMent.classList.replace('inactive-tab', 'active-tab');
+                btnPhys.classList.replace('active-tab', 'inactive-tab');
+            }
+        }
+
+        function toggleSchedule(mode) {
+            const btnPres = document.getElementById('btn-mode-presencial');
+            const btnOnli = document.getElementById('btn-mode-online');
+            const viewPres = document.getElementById('view-presencial');
+            const viewOnli = document.getElementById('view-online');
+
+            if(mode === 'presencial') {
+                btnPres.classList.add('bg-orange-600', 'text-white', 'shadow-lg');
+                btnPres.classList.remove('text-stone-400', 'hover:text-white');
+                
+                btnOnli.classList.remove('bg-orange-600', 'text-white', 'shadow-lg');
+                btnOnli.classList.add('text-stone-400', 'hover:text-white');
+
+                viewPres.classList.remove('hidden');
+                viewOnli.classList.add('hidden');
+            } else {
+                btnOnli.classList.add('bg-orange-600', 'text-white', 'shadow-lg');
+                btnOnli.classList.remove('text-stone-400', 'hover:text-white');
+                
+                btnPres.classList.remove('bg-orange-600', 'text-white', 'shadow-lg');
+                btnPres.classList.add('text-stone-400', 'hover:text-white');
+
+                viewOnli.classList.remove('hidden');
+                viewPres.classList.add('hidden');
+            }
+        }
+
+        function toggleAccordion(id) {
+            const element = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            // Toggle max-h-0 utility class for Tailwind transitions
+            if (element.classList.contains('max-h-0')) {
+                element.classList.remove('max-h-0', 'py-0');
+                element.classList.add('max-h-96');
+                icon.classList.add('rotate-180');
+            } else {
+                element.classList.remove('max-h-96');
+                element.classList.add('max-h-0');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // --- Simulation Logic for Gemini Routine Generator ---
+        function generateRoutine() {
+            const btn = document.getElementById('btn-generate-routine');
+            const outputDiv = document.getElementById('routine-output');
+            const inputTime = document.getElementById('input-time').value;
+            const inputEquipment = document.getElementById('input-equipment').value;
+            const inputFocus = document.getElementById('input-focus').value;
+
+            // Simple simulation of the AI generating a routine
+            const routineHTML = `
+                <div class="bg-stone-50 p-6 rounded-xl border border-stone-200 text-stone-700 text-lg space-y-3">
+                    <h2 class="text-2xl font-bold text-orange-600 mb-3 border-b pb-2">Rutina Express Personalizada (${inputTime})</h2>
+                    <p class="text-base italic">**Enfoque:** ${inputFocus} | **Elementos:** ${inputEquipment}</p>
+
+                    <h3 class="text-xl font-bold text-stone-800 mt-4">FASE 1: Calentamiento (5 min)</h3>
+                    <ul class="list-disc ml-6 space-y-1">
+                        <li>3 min de movilidad articular dinámica (hombros, cadera, tobillos).</li>
+                        <li>2 min de planchas activas (alternando rodilla al codo).</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-stone-800 mt-4">FASE 2: Circuito HIIT/Calistenia</h3>
+                    <p class="text-sm text-stone-600 italic">Realiza 3 rondas. Trabajo 40s / Descanso 20s. Descanso de 1 min entre rondas.</p>
+                    <ul class="list-disc ml-6 space-y-1">
+                        <li>**Burpees** (o Burpees Silenciosos si aplica).</li>
+                        <li>**Flexiones Diamante** (Focus Calistenia).</li>
+                        <li>**Sentadillas con Salto** (Focus HIIT).</li>
+                        <li>**Plancha Lateral** (30s por lado).</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-stone-800 mt-4">FASE 3: Recuperación</h3>
+                    <ul class="list-disc ml-6 space-y-1">
+                        <li>2 min de estiramiento de pecho y hombros.</li>
+                        <li>3 min de respiración profunda y relajación corporal.</li>
+                    </ul>
+
+                    <p class="text-sm text-orange-600 font-bold mt-4">¡Rutina finalizada! Con nuestros planes, obtienes rutinas así, adaptadas a tu progreso real.</p>
+                </div>
+            `;
+
+            outputDiv.innerHTML = `
+                <div class="flex items-center justify-center p-4">
+                    <i class="fa-solid fa-spinner fa-spin-pulse text-orange-500 text-3xl mr-3"></i>
+                    <span class="text-xl text-stone-600">Generando rutina personalizada...</span>
+                </div>
+            `;
+            btn.disabled = true;
+
+            // Delay the output to simulate network time
+            setTimeout(() => {
+                outputDiv.innerHTML = routineHTML;
+                btn.disabled = false;
+            }, 1500); // 1.5 seconds delay
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('formulaChart').getContext('2d');
+            
+            Chart.defaults.font.family = "'Roboto Condensed', sans-serif";
+            
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Fuerza', 'Resistencia Cardio', 'Flexibilidad', 'Salud Mental', 'Tiempo Eficiente'],
+                    datasets: [{
+                        label: 'HIIT + Calistenia',
+                        data: [90, 95, 80, 90, 100],
+                        backgroundColor: 'rgba(249, 115, 22, 0.4)', 
+                        borderColor: 'rgba(249, 115, 22, 1)',
+                        pointBackgroundColor: 'rgba(249, 115, 22, 1)',
+                        borderWidth: 2
+                    }, {
+                        label: 'Gimnasio Tradicional',
+                        data: [85, 40, 30, 60, 50],
+                        backgroundColor: 'rgba(87, 83, 78, 0.2)', 
+                        borderColor: 'rgba(87, 83, 78, 0.6)',
+                        pointBackgroundColor: 'rgba(87, 83, 78, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e7e5e4' },
+                            grid: { color: '#e7e5e4' },
+                            pointLabels: {
+                                font: { size: 14, weight: 'bold' },
+                                color: '#44403c'
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: { size: 14 }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Initialize the default view for the interactive sections
+            switchBenefit('physical');
+            toggleSchedule('presencial');
+            
+            // To prevent issues if the accordion content is hidden with max-h-0 initially
+            document.getElementById('policy-payment').classList.add('max-h-0');
+            document.getElementById('policy-absence').classList.add('max-h-0');
+        });
+    </script>
+</body>
+</html>
