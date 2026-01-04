@@ -332,6 +332,18 @@
                                 <strong class="text-white">RECURSOS:</strong> Con o sin elementos, espacio reducido (2x2m).
                             </div>
                         </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-volume-xmark text-orange-500 mt-1"></i>
+                            <div>
+                                <strong class="text-white">AMBIENTE:</strong> Adaptamos ejercicios para ser silenciosos.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-bullseye text-orange-500 mt-1"></i>
+                            <div>
+                                <strong class="text-white">OBJETIVOS:</strong> Recuperación (4-12 min) o Correr.
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -342,7 +354,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-6xl text-stone-800">ELIGE TU PLAN</h2>
-                <p class="text-xl text-stone-600 font-bold uppercase tracking-widest">ENERO 2026</p>
+                <p class="text-xl text-stone-600 font-bold">ENERO 2026</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
@@ -354,6 +366,7 @@
                     <ul class="text-stone-600 space-y-3 mb-8">
                         <li><i class="fa-solid fa-check text-green-500 mr-2"></i> 8 Clases Mensuales</li>
                         <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Seguimiento Semanal</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Acceso Rutinas Online</li>
                     </ul>
                     <a href="#contact" class="block text-center w-full py-3 border-2 border-stone-200 rounded-xl font-bold text-stone-600 hover:bg-stone-100 transition">ELEGIR</a>
                 </div>
@@ -366,6 +379,7 @@
                     <ul class="text-stone-300 space-y-3 mb-8 text-lg">
                         <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> 12 Clases Mensuales</li>
                         <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Seguimiento Semanal</li>
+                        <li><i class="fa-solid fa-check text-orange-500 mr-2"></i> Recuperación & Stretching</li>
                         <li><i class="fa-solid fa-star text-orange-500 mr-2"></i> Máximos Resultados</li>
                     </ul>
                     <a href="#contact" class="block text-center w-full py-4 bg-orange-600 rounded-xl font-bold text-white hover:bg-orange-700 transition shadow-lg shadow-orange-600/30">ELEGIR PRO</a>
@@ -378,6 +392,7 @@
                     <ul class="text-stone-600 space-y-3 mb-8">
                         <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Diario (Lunes a Viernes)</li>
                         <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Modalidad Híbrida</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Personalización Total</li>
                     </ul>
                     <a href="#contact" class="block text-center w-full py-3 border-2 border-stone-200 rounded-xl font-bold text-stone-600 hover:bg-stone-100 transition">ELEGIR FULL</a>
                 </div>
@@ -386,7 +401,7 @@
 
             <div class="max-w-4xl mx-auto mt-16 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl p-8 text-white text-center shadow-xl">
                 <h3 class="text-4xl font-bold mb-2">CLASE DE PRUEBA: $17.000</h3>
-                <p class="text-xl opacity-90">¡Empezá el 2026 con toda la potencia!</p>
+                <p class="text-xl opacity-90">Valor descontable del total si te inscribes al mes completo. ¡Sin riesgos!</p>
             </div>
         </div>
     </section>
@@ -401,8 +416,13 @@
                     <h2 class="text-5xl text-stone-800">GASTÓN BURGOS</h2>
                     <h3 class="text-2xl text-orange-600 mb-4">Instructor en Calistenia & Terapeuta</h3>
                     <p class="text-stone-600 text-lg">
-                        "Mi objetivo es guiar tu entrenamiento valorando tus posibilidades físicas y tu salud integral."
+                        "Mi objetivo es guiar tu entrenamiento valorando tus posibilidades físicas y tu salud integral. 
+                        Combino la intensidad del HIIT con la sabiduría biomecánica de la calistenia."
                     </p>
+                    <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+                        <span class="bg-stone-100 px-3 py-1 rounded-full text-sm font-bold text-stone-600">Apto Médico Requerido</span>
+                        <span class="bg-stone-100 px-3 py-1 rounded-full text-sm font-bold text-stone-600">Clases Personalizadas Disponibles</span>
+                    </div>
                 </div>
             </div>
 
@@ -414,7 +434,19 @@
                     </button>
                     <div id="policy-payment" class="max-h-0 overflow-hidden transition-all duration-500 px-6 text-stone-600">
                         <div class="py-4">
-                            <p class="mb-2">La cuota se abona del <strong>1 al 5 de cada mes</strong>.</p>
+                            <p class="mb-2">La cuota se abona del <strong>1 al 5 de cada mes</strong>, o en tu fecha de inicio.</p>
+                            <p class="text-red-500"><i class="fa-solid fa-circle-exclamation mr-1"></i> Se aplica un recargo del 20% si se abona fuera de término y el lugar podría liberarse.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button onclick="toggleAccordion('policy-absence')" class="w-full px-6 py-4 text-left flex justify-between items-center bg-stone-50 hover:bg-stone-100 transition">
+                        <span class="font-bold text-xl text-stone-800"><i class="fa-solid fa-rotate-left mr-3 text-orange-500"></i> Ausencias y Recuperaciones</span>
+                        <i id="icon-policy-absence" class="fa-solid fa-chevron-down text-stone-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="policy-absence" class="max-h-0 overflow-hidden transition-all duration-500 px-6 text-stone-600">
+                        <div class="py-4">
+                            <p>Puedes recuperar las clases que faltaste <strong>únicamente dentro del mes abonado</strong>. No son transferibles al mes siguiente.</p>
                         </div>
                     </div>
                 </div>
@@ -425,41 +457,113 @@
     <footer id="contact" class="bg-stone-900 text-white py-16">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-6xl mb-8">CONÉCTATE Y COMIENZA</h2>
-            <div class="flex justify-center gap-8 mb-12">
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-12 mb-12">
+                <div class="text-center">
+                    <i class="fa-solid fa-location-dot text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold">ESPACIO INYO ☯️</h3>
+                    <p class="text-stone-400">Carlos Tejedor 335<br>Lanús Oeste Centro</p>
+                </div>
+                
+                <div class="text-center">
+                    <i class="fa-solid fa-qrcode text-6xl mb-2 text-stone-800"></i>
+                    <h3 class="text-2xl font-bold">WHATSAPP</h3>
+                    <p class="text-stone-400 text-2xl">11 7619-4825</p>
+                    <a href="mailto:gastburgos@hotmail.com" class="text-orange-400 hover:text-orange-300 mt-2 block">gastburgos@hotmail.com</a>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-8">
                 <div class="bg-white p-4 rounded-xl w-40 h-40 flex flex-col items-center justify-center text-stone-900">
-                    <img src="imagen/photo-output.jpeg" alt="QR WhatsApp" class="w-24 h-24 mb-2 object-contain">
+                    <img src="imagen/photo-output.jpeg" alt="Código QR de WhatsApp" class="w-24 h-24 mb-2 object-contain">
                     <span class="font-bold text-sm">WHATSAPP</span>
                 </div>
                 <div class="bg-white p-4 rounded-xl w-40 h-40 flex flex-col items-center justify-center text-stone-900">
-                    <img src="imagen/IMG_4931.jpeg" alt="QR Instagram" class="w-24 h-24 mb-2 object-contain">
+                    <img src="imagen/IMG_4931.jpeg" alt="Código QR de Instagram" class="w-24 h-24 mb-2 object-contain">
                     <span class="font-bold text-sm">INSTAGRAM</span>
                 </div>
             </div>
+            
             <div class="mt-12 text-stone-600 text-sm">
-                &copy; ENERO 2026 Espacio Inyo - HIIT Calistenia.
+                &copy; ENERO 2026 Espacio Inyo - HIIT Calistenia. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/5491176194825" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg z-50 text-3xl transition transform hover:scale-110">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
     <script>
         const contentData = {
-            physical: `<div class="grid md:grid-cols-3 gap-8 text-center animate-fade-in"><div class="p-4"><div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-dumbbell"></i></div><h4 class="text-2xl font-bold mb-2">FUERZA</h4><p>Músculos magros y control corporal.</p></div></div>`,
-            mental: `<div class="grid md:grid-cols-3 gap-8 text-center animate-fade-in"><div class="p-4"><div class="w-16 h-16 bg-stone-200 text-stone-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-brain"></i></div><h4 class="text-2xl font-bold mb-2">CONTROL</h4><p>Tu mejor terapia contra el estrés.</p></div></div>`
+            physical: `
+                <div class="grid md:grid-cols-3 gap-8 text-center animate-fade-in">
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">FUERZA SÓLIDA</h4>
+                        <p class="text-stone-600">Desarrolla músculos magros y aprende habilidades de calistenia.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">METABOLISMO 24/7</h4>
+                        <p class="text-stone-600">Quema calorías hasta 48hs después de entrenar (Efecto EPOC).</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-battery-full"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">VITALIDAD</h4>
+                        <p class="text-stone-600">Despídete de la fatiga crónica. Aumenta tu energía diaria.</p>
+                    </div>
+                </div>
+            `,
+            mental: `
+                <div class="grid md:grid-cols-3 gap-8 text-center animate-fade-in">
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-stone-200 text-stone-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">CONTROL ESTRÉS</h4>
+                        <p class="text-stone-600">Tu mejor terapia. Incluye recuperación anti-fatiga.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-stone-200 text-stone-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">POSTURA</h4>
+                        <p class="text-stone-600">Corrige malos hábitos y previene lesiones.</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="w-16 h-16 bg-stone-200 text-stone-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-2">COMUNIDAD</h4>
+                        <p class="text-stone-600">Entrena con apoyo real en Espacio INYO ☯️.</p>
+                    </div>
+                </div>
+            `
         };
 
         function switchBenefit(type) {
             const contentDiv = document.getElementById('benefit-content');
+            
             contentDiv.style.opacity = '0';
+            
             setTimeout(() => {
                 contentDiv.innerHTML = contentData[type];
                 contentDiv.style.opacity = '1';
-                document.getElementById('btn-physical').className = type === 'physical' ? 'w-1/2 py-4 text-2xl brand-font active-tab transition-all' : 'w-1/2 py-4 text-2xl brand-font inactive-tab transition-all';
-                document.getElementById('btn-mental').className = type === 'mental' ? 'w-1/2 py-4 text-2xl brand-font active-tab transition-all' : 'w-1/2 py-4 text-2xl brand-font inactive-tab transition-all';
             }, 300);
+
+            const btnPhys = document.getElementById('btn-physical');
+            const btnMent = document.getElementById('btn-mental');
+
+            if(type === 'physical') {
+                btnPhys.classList.replace('inactive-tab', 'active-tab');
+                btnMent.classList.replace('active-tab', 'inactive-tab');
+            } else {
+                btnMent.classList.replace('inactive-tab', 'active-tab');
+                btnPhys.classList.replace('active-tab', 'inactive-tab');
+            }
         }
 
         function toggleSchedule(mode) {
@@ -467,14 +571,23 @@
             const btnOnli = document.getElementById('btn-mode-online');
             const viewPres = document.getElementById('view-presencial');
             const viewOnli = document.getElementById('view-online');
+
             if(mode === 'presencial') {
                 btnPres.classList.add('bg-orange-600', 'text-white', 'shadow-lg');
+                btnPres.classList.remove('text-stone-400', 'hover:text-white');
+                
                 btnOnli.classList.remove('bg-orange-600', 'text-white', 'shadow-lg');
+                btnOnli.classList.add('text-stone-400', 'hover:text-white');
+
                 viewPres.classList.remove('hidden');
                 viewOnli.classList.add('hidden');
             } else {
                 btnOnli.classList.add('bg-orange-600', 'text-white', 'shadow-lg');
+                btnOnli.classList.remove('text-stone-400', 'hover:text-white');
+                
                 btnPres.classList.remove('bg-orange-600', 'text-white', 'shadow-lg');
+                btnPres.classList.add('text-stone-400', 'hover:text-white');
+
                 viewOnli.classList.remove('hidden');
                 viewPres.classList.add('hidden');
             }
@@ -483,11 +596,14 @@
         function toggleAccordion(id) {
             const element = document.getElementById(id);
             const icon = document.getElementById('icon-' + id);
+            
             if (element.classList.contains('max-h-0')) {
-                element.classList.replace('max-h-0', 'max-h-96');
+                element.classList.remove('max-h-0', 'py-0');
+                element.classList.add('max-h-96');
                 icon.classList.add('rotate-180');
             } else {
-                element.classList.replace('max-h-96', 'max-h-0');
+                element.classList.remove('max-h-96');
+                element.classList.add('max-h-0');
                 icon.classList.remove('rotate-180');
             }
         }
@@ -495,36 +611,104 @@
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
-
+        
         function generateRoutine() {
             const btn = document.getElementById('btn-generate-routine');
             const outputDiv = document.getElementById('routine-output');
-            outputDiv.innerHTML = `<div class="flex items-center justify-center p-4"><i class="fa-solid fa-spinner fa-spin text-orange-500 text-3xl"></i></div>`;
+            const inputTime = document.getElementById('input-time').value;
+            const inputEquipment = document.getElementById('input-equipment').value;
+            const inputFocus = document.getElementById('input-focus').value;
+
+            const routineHTML = `
+                <div class="bg-stone-50 p-6 rounded-xl border border-stone-200 text-stone-700 text-lg space-y-3">
+                    <h2 class="text-2xl font-bold text-orange-600 mb-3 border-b pb-2">Rutina Express Personalizada (${inputTime})</h2>
+                    <p class="text-base italic">**Enfoque:** ${inputFocus} | **Elementos:** ${inputEquipment}</p>
+                    <h3 class="text-xl font-bold text-stone-800 mt-4">FASE 1: Calentamiento (5 min)</h3>
+                    <ul class="list-disc ml-6 space-y-1">
+                        <li>3 min de movilidad articular dinámica.</li>
+                        <li>2 min de planchas activas.</li>
+                    </ul>
+                    <h3 class="text-xl font-bold text-stone-800 mt-4">FASE 2: Circuito HIIT/Calistenia</h3>
+                    <p class="text-sm text-stone-600 italic">3 rondas. Trabajo 40s / Descanso 20s.</p>
+                    <ul class="list-disc ml-6 space-y-1">
+                        <li>Burpees.</li>
+                        <li>Flexiones Diamante.</li>
+                        <li>Sentadillas con Salto.</li>
+                        <li>Plancha Lateral.</li>
+                    </ul>
+                    <p class="text-sm text-orange-600 font-bold mt-4">¡Rutina finalizada! Con nuestros planes obtienes más personalización.</p>
+                </div>
+            `;
+
+            outputDiv.innerHTML = `
+                <div class="flex items-center justify-center p-4">
+                    <i class="fa-solid fa-spinner fa-spin-pulse text-orange-500 text-3xl mr-3"></i>
+                    <span class="text-xl text-stone-600">Generando rutina personalizada...</span>
+                </div>
+            `;
             btn.disabled = true;
+
             setTimeout(() => {
-                outputDiv.innerHTML = `<div class="bg-stone-50 p-6 rounded-xl border border-stone-200 text-stone-700 text-lg"><h2 class="text-2xl font-bold text-orange-600 mb-2">Rutina Express Generada</h2><p>Realiza 3 rondas: 40s Trabajo / 20s Descanso de Burpees, Flexiones y Sentadillas.</p></div>`;
+                outputDiv.innerHTML = routineHTML;
                 btn.disabled = false;
-            }, 1000);
+            }, 1500);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             const ctx = document.getElementById('formulaChart').getContext('2d');
+            
+            Chart.defaults.font.family = "'Roboto Condensed', sans-serif";
+            
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Fuerza', 'Cardio', 'Flexibilidad', 'Mental', 'Tiempo'],
+                    labels: ['Fuerza', 'Resistencia Cardio', 'Flexibilidad', 'Salud Mental', 'Tiempo Eficiente'],
                     datasets: [{
                         label: 'HIIT + Calistenia',
                         data: [90, 95, 80, 90, 100],
-                        backgroundColor: 'rgba(249, 115, 22, 0.4)',
+                        backgroundColor: 'rgba(249, 115, 22, 0.4)', 
                         borderColor: 'rgba(249, 115, 22, 1)',
+                        pointBackgroundColor: 'rgba(249, 115, 22, 1)',
                         borderWidth: 2
+                    }, {
+                        label: 'Gimnasio Tradicional',
+                        data: [85, 40, 30, 60, 50],
+                        backgroundColor: 'rgba(87, 83, 78, 0.2)', 
+                        borderColor: 'rgba(87, 83, 78, 0.6)',
+                        pointBackgroundColor: 'rgba(87, 83, 78, 1)',
+                        borderWidth: 1
                     }]
                 },
-                options: { scales: { r: { suggestedMin: 0, suggestedMax: 100, ticks: { display: false } } } }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e7e5e4' },
+                            grid: { color: '#e7e5e4' },
+                            pointLabels: {
+                                font: { size: 14, weight: 'bold' },
+                                color: '#44403c'
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false }
+                        }
+                    }
+                }
             });
+
             switchBenefit('physical');
+            toggleSchedule('presencial');
+            document.getElementById('policy-payment').classList.add('max-h-0');
+            document.getElementById('policy-absence').classList.add('max-h-0');
         });
     </script>
+    <a href="https://wa.me/5491176194825" 
+       class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50 
+              flex items-center justify-center text-3xl transition duration-300 transform hover:scale-110" 
+       target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 </body>
 </html>
