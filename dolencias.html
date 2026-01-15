@@ -41,9 +41,7 @@
             pointer-events: none;
             transition: opacity 0.2s;
         }
-        .pain-point:hover::after, .pain-point.active::after {
-            opacity: 1;
-        }
+        .pain-point:hover::after, .pain-point.active::after { opacity: 1; }
     </style>
 </head>
 <body class="bg-slate-50 font-sans antialiased">
@@ -56,8 +54,8 @@
 
         <div class="flex justify-center mb-6">
             <div class="bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200 flex gap-1">
-                <button id="btnMujer" class="px-8 py-2.5 rounded-xl transition-all duration-300 bg-blue-600 text-white font-semibold shadow-md">Mujer</button>
-                <button id="btnHombre" class="px-8 py-2.5 rounded-xl transition-all duration-300 text-slate-500 font-semibold hover:bg-slate-50">Hombre</button>
+                <button id="btnMujer" class="px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md">Mujer</button>
+                <button id="btnHombre" class="px-8 py-2.5 rounded-xl text-slate-500 font-semibold hover:bg-slate-50">Hombre</button>
             </div>
         </div>
 
@@ -87,33 +85,25 @@
         let currentGender = 'Mujer';
 
         const pointsConfig = [
-            // VISTA FRONTAL
-            { name: 'Frente/Cabeza', top: '15.5%', left: '26%' }, 
-            { name: 'Cuello', top: '22.5%', left: '25%' },       
-            { name: 'Hombro Derecho', top: '28%', left: '17%' },      
-            { name: 'Hombro Izquierdo', top: '28%', left: '35.5%' },  
-            { name: 'Pecho', top: '29.5%', left: '26%' },           
-            { name: 'Brazo Derecho', top: '36%', left: '13%' },       
-            { name: 'Brazo Izquierdo', top: '36%', left: '36.2%' },   
-            { name: 'Abdomen', top: '41%', left: '26%' },       
-            { name: 'Muñeca Derecha', top: '50%', left: '9%' },       
-            { name: 'Muñeca Izquierda', top: '50%', left: '39.8%' },  
-            { name: 'Cadera', top: '45%', left: '26%' },            
-            { name: 'Muslo Derecho', top: '55.5%', left: '20%' },   
-            { name: 'Muslo Izquierdo', top: '55.5%', left: '31%' },  
-            { name: 'Rodilla Derecho', top: '65%', left: '20%' },   
-            { name: 'Rodilla Izquierda', top: '65%', left: '31%' },  
-            { name: 'Tobillo Derecho', top: '82.5%', left: '21%' }, 
-            { name: 'Tobillo Izquierdo', top: '82.5%', left: '30%' }, 
+            // FRONTAL
+            { name: 'Frente/Cabeza', top: '15.5%', left: '26%' }, { name: 'Cuello', top: '22.5%', left: '25%' },
+            { name: 'Hombro Derecho', top: '28%', left: '17%' }, { name: 'Hombro Izquierdo', top: '28%', left: '35.5%' },
+            { name: 'Pecho', top: '29.5%', left: '26%' }, { name: 'Brazo Derecho', top: '36%', left: '13%' },
+            { name: 'Brazo Izquierdo', top: '36%', left: '36.2%' }, { name: 'Abdomen', top: '41%', left: '26%' },
+            { name: 'Muñeca Derecha', top: '50%', left: '9%' }, { name: 'Muñeca Izquierda', top: '50%', left: '39.8%' },
+            { name: 'Cadera', top: '45%', left: '26%' }, { name: 'Muslo Derecho', top: '55.5%', left: '20%' },
+            { name: 'Muslo Izquierdo', top: '55.5%', left: '31%' }, { name: 'Rodilla Derecho', top: '65%', left: '20%' },
+            { name: 'Rodilla Izquierda', top: '65%', left: '31%' }, { name: 'Tobillo Derecho', top: '82.5%', left: '21%' },
+            { name: 'Tobillo Izquierdo', top: '82.5%', left: '30%' },
 
-            // VISTA POSTERIOR (AJUSTE QUIRÚRGICO AL 68%)
+            // POSTERIOR (Centrado en 68% - Ajuste Quirúrgico Vertical)
             { name: 'Nuca', top: '15%', left: '68%' },
             { name: 'Espalda Alta', top: '27%', left: '68%' },
             { name: 'Escápula Derecha', top: '27%', left: '62%' },
             { name: 'Escápula Izquierda', top: '27%', left: '74%' },
-            { name: 'Columna', top: '38%', left: '68%' },
-            { name: 'Región Lumbar', top: '45.5%', left: '68%' },
-            { name: 'Glúteos', top: '53.5%', left: '68%' },
+            { name: 'Columna', top: '35%', left: '68%' },        // SUBIDO
+            { name: 'Región Lumbar', top: '43%', left: '68%' },  // SUBIDO
+            { name: 'Glúteos', top: '51%', left: '68%' },        // SUBIDO
             { name: 'Gemelo Derecho', top: '75%', left: '63%' },
             { name: 'Gemelo Izquierdo', top: '75%', left: '73%' },
             { name: 'Talón', top: '88.5%', left: '68%' }
@@ -129,39 +119,34 @@
                 dot.style.left = p.left;
                 dot.onclick = () => {
                     dot.classList.toggle('active');
-                    if(selectedPoints.has(p.name)) selectedPoints.delete(p.name);
-                    else selectedPoints.add(p.name);
+                    selectedPoints.has(p.name) ? selectedPoints.delete(p.name) : selectedPoints.add(p.name);
                 };
                 container.appendChild(dot);
             });
         }
 
-        btnMujer.onclick = () => {
-            currentGender = 'Mujer';
-            bodyImg.src = 'imagen/cuerpo-mujer.png';
-            btnMujer.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md';
-            btnHombre.className = 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
-            selectedPoints.clear(); loadPoints();
-        };
+        // RE-CALCULAR CUANDO LA IMAGEN CARGA (Evita el salto al refrescar)
+        bodyImg.onload = loadPoints;
+        if (bodyImg.complete) loadPoints();
 
-        btnHombre.onclick = () => {
-            currentGender = 'Hombre';
-            bodyImg.src = 'imagen/cuerpo-hombre.png';
-            btnHombre.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md';
-            btnMujer.className = 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
-            selectedPoints.clear(); loadPoints();
-        };
+        function changeGender(gender) {
+            currentGender = gender;
+            bodyImg.src = gender === 'Mujer' ? 'imagen/cuerpo-mujer.png' : 'imagen/cuerpo-hombre.png';
+            btnMujer.className = gender === 'Mujer' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
+            btnHombre.className = gender === 'Hombre' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
+            selectedPoints.clear();
+            // loadPoints se activará solo por el onload de la imagen arriba
+        }
 
+        btnMujer.onclick = () => changeGender('Mujer');
+        btnHombre.onclick = () => changeGender('Hombre');
         btnLimpiar.onclick = () => { selectedPoints.clear(); loadPoints(); };
 
         btnEnviar.onclick = () => {
-            if(selectedPoints.size === 0) { alert("Marque al menos una zona."); return; }
-            const lista = Array.from(selectedPoints).join(", ");
-            const texto = `Hola Gastón! Soy paciente de Espacio INYO. Indico mis zonas de dolor (${currentGender}): ${lista}.`;
+            if(selectedPoints.size === 0) { alert("Marca al menos una zona."); return; }
+            const texto = `Hola Gastón! Soy paciente de Espacio INYO. Indico mis zonas de dolor (${currentGender}): ${Array.from(selectedPoints).join(", ")}.`;
             window.open(`https://wa.me/5491158580556?text=${encodeURIComponent(texto)}`, '_blank');
         };
-
-        window.onload = loadPoints;
     </script>
 </body>
 </html>
