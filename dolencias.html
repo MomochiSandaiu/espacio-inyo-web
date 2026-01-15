@@ -45,7 +45,7 @@
     <div class="max-w-3xl mx-auto p-4 md:p-8">
         <header class="text-center mb-8">
             <h1 class="text-3xl font-bold text-slate-800 tracking-tight">Evaluación Corporal</h1>
-            <p class="text-slate-500 mt-2 font-medium">Toca las zonas de dolor o molestia para tu sesión</p>
+            <p class="text-slate-500 mt-2 font-medium italic">Espacio INYO - Gastón Burgos</p>
         </header>
 
         <div class="flex justify-center mb-6">
@@ -65,11 +65,8 @@
             <span id="counter" class="px-4 py-1.5 bg-slate-200 text-slate-700 rounded-full text-xs font-bold uppercase tracking-widest">0 zonas marcadas</span>
         </div>
 
-        <div class="mt-8 flex flex-col gap-4">
+        <div class="mt-8 flex flex-col gap-4 max-w-sm mx-auto">
             <button id="btnEnviar" class="w-full bg-emerald-500 text-white py-4 rounded-2xl font-extrabold text-lg shadow-lg hover:bg-emerald-600 active:scale-95 transition-all flex items-center justify-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
                 <span>Enviar Reporte a Gastón</span>
             </button>
             <button id="btnLimpiar" class="text-slate-400 text-sm font-medium hover:text-rose-500 transition-colors">Limpiar mapa</button>
@@ -93,35 +90,31 @@
         let currentGender = 'Mujer';
 
         const pointsConfig = [
-            // VISTA FRONTAL
-            { name: 'Frente/Cabeza', top: '14%', left: '26%' }, 
-            { name: 'Cuello', top: '23.5%', left: '26%' },         // Bajado (+)
+            // AJUSTES MILIMÉTRICOS SOLICITADOS
+            { name: 'Frente/Cabeza', top: '15.5%', left: '26%' }, // Bajado (+)
+            { name: 'Cuello', top: '22.5%', left: '25%' },       // Movido a la izquierda (-)
             { name: 'Hombro Derecho', top: '28%', left: '17%' },
-            { name: 'Hombro Izquierdo', top: '28%', left: '35%' },
-            { name: 'Pecho', top: '35%', left: '26%' },
+            { name: 'Hombro Izquierdo', top: '28%', left: '34%' }, // Movido a la izquierda (-)
+            { name: 'Pecho', top: '34%', left: '26%' },          // Un poco arriba (-)
             { name: 'Brazo Derecho', top: '36%', left: '13%' },
-            { name: 'Brazo Izquierdo', top: '36%', left: '35.5%' }, // Movido a la izquierda (-)
+            { name: 'Brazo Izquierdo', top: '36%', left: '41.5%' }, 
             { name: 'Abdomen', top: '41%', left: '26%' },       
             { name: 'Muñeca Derecha', top: '50%', left: '9%' },
-            { name: 'Muñeca Izquierda', top: '50%', left: '40.5%' }, // Movido a la izquierda (-)
-            { name: 'Cadera', top: '47%', left: '26%' },           // Subido (-)
-            { name: 'Muslo Derecho', top: '58%', left: '20%' },    // Subido (-)
-            { name: 'Muslo Izquierdo', top: '58%', left: '32%' },   // Subido (-)
-            { name: 'Rodilla Derecho', top: '68%', left: '20%' },  // Subido (-)
-            { name: 'Rodilla Izquierda', top: '68%', left: '32%' }, // Subido (-)
-            { name: 'Tobillo Derecho', top: '85.5%', left: '21%' }, // Subido (-)
-            { name: 'Tobillo Izquierdo', top: '85.5%', left: '31%' }, // Subido (-)
+            { name: 'Muñeca Izquierda', top: '50%', left: '46.5%' }, 
+            { name: 'Cadera', top: '48.5%', left: '26%' },
+            { name: 'Muslo Derecho', top: '59.5%', left: '20%' },
+            { name: 'Muslo Izquierdo', top: '59.5%', left: '31%' }, // Movido a la izquierda (-)
+            { name: 'Rodilla Derecho', top: '70%', left: '20%' },
+            { name: 'Rodilla Izquierda', top: '70%', left: '31%' }, // Movido a la izquierda (-)
+            { name: 'Tobillo Derecho', top: '87.5%', left: '21%' },
+            { name: 'Tobillo Izquierdo', top: '87.5%', left: '30%' }, // Movido a la izquierda (-)
 
             // VISTA POSTERIOR
             { name: 'Nuca', top: '15%', left: '77%' },
             { name: 'Espalda Alta', top: '27%', left: '77%' },
-            { name: 'Escápula Derecha', top: '27%', left: '70%' },
-            { name: 'Escápula Izquierda', top: '27%', left: '84%' },
             { name: 'Columna/Dorso', top: '38%', left: '77%' },
             { name: 'Región Lumbar', top: '48%', left: '77%' },
             { name: 'Glúteos', top: '57%', left: '77%' },
-            { name: 'Gemelo Derecho', top: '80%', left: '71%' },
-            { name: 'Gemelo Izquierdo', top: '80%', left: '83%' },
             { name: 'Talón', top: '92%', left: '77%' }
         ];
 
