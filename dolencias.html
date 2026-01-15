@@ -25,7 +25,6 @@
             transform: translate(-50%, -50%) scale(1.2);
             border-color: #fff;
         }
-        /* Mostrar nombres al pasar o activar */
         .pain-point::after {
             content: attr(data-name);
             position: absolute;
@@ -88,9 +87,9 @@
         let currentGender = 'Mujer';
 
         const pointsConfig = [
-            // VISTA FRONTAL (Se mantiene perfecta)
+            // VISTA FRONTAL (Sin cambios)
             { name: 'Frente/Cabeza', top: '15.5%', left: '26%' }, 
-            { name: 'Cuello (F)', top: '22.5%', left: '25%' },       
+            { name: 'Cuello', top: '22.5%', left: '25%' },       
             { name: 'Hombro Derecho', top: '28%', left: '17%' },      
             { name: 'Hombro Izquierdo', top: '28%', left: '35.5%' },  
             { name: 'Pecho', top: '29.5%', left: '26%' },           
@@ -107,17 +106,17 @@
             { name: 'Tobillo Derecho', top: '82.5%', left: '21%' }, 
             { name: 'Tobillo Izquierdo', top: '82.5%', left: '30%' }, 
 
-            // VISTA POSTERIOR (CORREGIDA: Movida a la izquierda para centrar)
-            { name: 'Nuca', top: '15%', left: '67%' },
-            { name: 'Espalda Alta', top: '27%', left: '67%' },
-            { name: 'Escápula Derecha', top: '27%', left: '61%' },
-            { name: 'Escápula Izquierda', top: '27%', left: '73%' },
-            { name: 'Columna', top: '38%', left: '67%' },
-            { name: 'Región Lumbar', top: '48%', left: '67%' },
-            { name: 'Glúteos', top: '57%', left: '67%' },
-            { name: 'Gemelo Derecho', top: '80%', left: '62%' },
-            { name: 'Gemelo Izquierdo', top: '80%', left: '72%' },
-            { name: 'Talón', top: '92%', left: '67%' }
+            // VISTA POSTERIOR (AJUSTE 60% SOLICITADO)
+            { name: 'Nuca', top: '15%', left: '60%' },
+            { name: 'Espalda Alta', top: '27%', left: '60%' },
+            { name: 'Escápula Derecha', top: '27%', left: '54%' },
+            { name: 'Escápula Izquierda', top: '27%', left: '66%' },
+            { name: 'Columna', top: '38%', left: '60%' },
+            { name: 'Región Lumbar', top: '48%', left: '60%' },
+            { name: 'Glúteos', top: '57%', left: '60%' },
+            { name: 'Gemelo Derecho', top: '80%', left: '55%' },
+            { name: 'Gemelo Izquierdo', top: '80%', left: '65%' },
+            { name: 'Talón', top: '92%', left: '60%' }
         ];
 
         function loadPoints() {
@@ -137,22 +136,17 @@
             });
         }
 
-        btnMujer.onclick = () => {
-            currentGender = 'Mujer';
-            bodyImg.src = 'imagen/cuerpo-mujer.png';
-            btnMujer.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold';
-            btnHombre.className = 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
-            selectedPoints.clear(); loadPoints();
-        };
+        function loadGender(gender) {
+            currentGender = gender;
+            bodyImg.src = gender === 'Mujer' ? 'imagen/cuerpo-mujer.png' : 'imagen/cuerpo-hombre.png';
+            btnMujer.className = gender === 'Mujer' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
+            btnHombre.className = gender === 'Hombre' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
+            selectedPoints.clear();
+            loadPoints();
+        }
 
-        btnHombre.onclick = () => {
-            currentGender = 'Hombre';
-            bodyImg.src = 'imagen/cuerpo-hombre.png';
-            btnHombre.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold';
-            btnMujer.className = 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
-            selectedPoints.clear(); loadPoints();
-        };
-
+        btnMujer.onclick = () => loadGender('Mujer');
+        btnHombre.onclick = () => loadGender('Hombre');
         btnLimpiar.onclick = () => { selectedPoints.clear(); loadPoints(); };
 
         btnEnviar.onclick = () => {
