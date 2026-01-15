@@ -87,7 +87,7 @@
         let currentGender = 'Mujer';
 
         const pointsConfig = [
-            // VISTA FRONTAL (Se mantiene perfecta)
+            // VISTA FRONTAL (Perfecta)
             { name: 'Frente/Cabeza', top: '15.5%', left: '26%' }, 
             { name: 'Cuello', top: '22.5%', left: '25%' },       
             { name: 'Hombro Derecho', top: '28%', left: '17%' },      
@@ -106,17 +106,17 @@
             { name: 'Tobillo Derecho', top: '82.5%', left: '21%' }, 
             { name: 'Tobillo Izquierdo', top: '82.5%', left: '30%' }, 
 
-            // VISTA POSTERIOR (AJUSTE QUIRÚRGICO AL 45%-55%)
-            { name: 'Nuca', top: '15%', left: '46%' },
-            { name: 'Espalda Alta', top: '27%', left: '46%' },
-            { name: 'Escápula Derecha', top: '27%', left: '40%' },
-            { name: 'Escápula Izquierda', top: '27%', left: '52%' },
-            { name: 'Columna', top: '38%', left: '46%' },
-            { name: 'Región Lumbar', top: '48%', left: '46%' },
-            { name: 'Glúteos', top: '57%', left: '46%' },
-            { name: 'Gemelo Derecho', top: '80%', left: '41%' },
-            { name: 'Gemelo Izquierdo', top: '80%', left: '51%' },
-            { name: 'Talón', top: '92%', left: '46%' }
+            // VISTA POSTERIOR (AJUSTE QUIRÚRGICO AL 70%)
+            { name: 'Nuca', top: '15%', left: '70.5%' },
+            { name: 'Espalda Alta', top: '27%', left: '70.5%' },
+            { name: 'Escápula Derecha', top: '27%', left: '64.5%' },
+            { name: 'Escápula Izquierda', top: '27%', left: '76.5%' },
+            { name: 'Columna', top: '38%', left: '70.5%' },
+            { name: 'Región Lumbar', top: '48%', left: '70.5%' },
+            { name: 'Glúteos', top: '57%', left: '70.5%' },
+            { name: 'Gemelo Derecho', top: '80%', left: '65.5%' },
+            { name: 'Gemelo Izquierdo', top: '80%', left: '75.5%' },
+            { name: 'Talón', top: '92%', left: '70.5%' }
         ];
 
         function loadPoints() {
@@ -136,17 +136,22 @@
             });
         }
 
-        function loadGender(gender) {
-            currentGender = gender;
-            bodyImg.src = gender === 'Mujer' ? 'imagen/cuerpo-mujer.png' : 'imagen/cuerpo-hombre.png';
-            btnMujer.className = gender === 'Mujer' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
-            btnHombre.className = gender === 'Hombre' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
-            selectedPoints.clear();
-            loadPoints();
-        }
+        btnMujer.onclick = () => {
+            currentGender = 'Mujer';
+            bodyImg.src = 'imagen/cuerpo-mujer.png';
+            btnMujer.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md';
+            btnHombre.className = 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
+            selectedPoints.clear(); loadPoints();
+        };
 
-        btnMujer.onclick = () => loadGender('Mujer');
-        btnHombre.onclick = () => loadGender('Hombre');
+        btnHombre.onclick = () => {
+            currentGender = 'Hombre';
+            bodyImg.src = 'imagen/cuerpo-hombre.png';
+            btnHombre.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md';
+            btnMujer.className = 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
+            selectedPoints.clear(); loadPoints();
+        };
+
         btnLimpiar.onclick = () => { selectedPoints.clear(); loadPoints(); };
 
         btnEnviar.onclick = () => {
