@@ -25,20 +25,25 @@
             transform: translate(-50%, -50%) scale(1.2);
             border-color: #fff;
         }
-        /* Restaurado: Estilo para mostrar nombres */
-        .pain-point:hover::after {
+        /* ESTO HACE QUE EL NOMBRE APAREZCA */
+        .pain-point::after {
             content: attr(data-name);
             position: absolute;
-            bottom: 32px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: #1e293b;
+            background: rgba(30, 41, 59, 0.9);
             color: white;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
             white-space: nowrap;
-            z-index: 20;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .pain-point:hover::after, .pain-point.active::after {
+            opacity: 1;
         }
     </style>
 </head>
@@ -83,7 +88,7 @@
         let currentGender = 'Mujer';
 
         const pointsConfig = [
-            // VISTA FRONTAL
+            // FRENTE
             { name: 'Frente/Cabeza', top: '15.5%', left: '26%' }, 
             { name: 'Cuello', top: '22.5%', left: '25%' },       
             { name: 'Hombro Derecho', top: '28%', left: '17%' },      
@@ -101,13 +106,12 @@
             { name: 'Rodilla Izquierda', top: '65%', left: '31%' },  
             { name: 'Tobillo Derecho', top: '82.5%', left: '21%' }, 
             { name: 'Tobillo Izquierdo', top: '82.5%', left: '30%' }, 
-
-            // VISTA POSTERIOR
+            // ESPALDA
             { name: 'Nuca', top: '15%', left: '77%' },
             { name: 'Espalda Alta', top: '27%', left: '77%' },
             { name: 'Escápula Derecha', top: '27%', left: '70%' },
             { name: 'Escápula Izquierda', top: '27%', left: '84%' },
-            { name: 'Columna/Dorso', top: '38%', left: '77%' },
+            { name: 'Columna', top: '38%', left: '77%' },
             { name: 'Región Lumbar', top: '48%', left: '77%' },
             { name: 'Glúteos', top: '57%', left: '77%' },
             { name: 'Gemelo Derecho', top: '80%', left: '71%' },
@@ -120,7 +124,7 @@
             pointsConfig.forEach(p => {
                 const dot = document.createElement('div');
                 dot.className = 'pain-point';
-                dot.setAttribute('data-name', p.name); // Restaurado: Asigna el nombre
+                dot.setAttribute('data-name', p.name); // Esto es clave
                 dot.style.top = p.top;
                 dot.style.left = p.left;
                 dot.onclick = () => {
@@ -135,7 +139,7 @@
         btnMujer.onclick = () => {
             currentGender = 'Mujer';
             bodyImg.src = 'imagen/cuerpo-mujer.png';
-            btnMujer.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md';
+            btnMujer.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold';
             btnHombre.className = 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
             selectedPoints.clear(); loadPoints();
         };
@@ -143,7 +147,7 @@
         btnHombre.onclick = () => {
             currentGender = 'Hombre';
             bodyImg.src = 'imagen/cuerpo-hombre.png';
-            btnHombre.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md';
+            btnHombre.className = 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold';
             btnMujer.className = 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
             selectedPoints.clear(); loadPoints();
         };
