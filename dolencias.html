@@ -92,26 +92,26 @@
         let selectedPoints = new Set();
         let currentGender = 'Mujer';
 
-        // AJUSTES QUIRÚRGICOS SOLICITADOS
+        // AJUSTES MILIMÉTRICOS
         const pointsConfig = [
             // VISTA FRONTAL
-            { name: 'Frente/Cabeza', top: '14%', left: '26%' }, // Bajado
-            { name: 'Cuello', top: '20%', left: '26%' },         // Bajado
-            { name: 'Hombro Derecho', top: '25%', left: '17%' }, // Bajado
-            { name: 'Hombro Izquierdo', top: '25%', left: '35%' }, // Bajado
-            { name: 'Pecho', top: '32%', left: '26%' },         // Bajado
+            { name: 'Frente/Cabeza', top: '14%', left: '26%' }, 
+            { name: 'Cuello', top: '21%', left: '26%' },         // Bajado un poco
+            { name: 'Hombro Derecho', top: '26%', left: '17%' }, // Bajado un poco
+            { name: 'Hombro Izquierdo', top: '26%', left: '35%' }, // Bajado un poco
+            { name: 'Pecho', top: '33%', left: '26%' },         // Bajado un poco
             { name: 'Brazo Derecho', top: '36%', left: '13%' },
-            { name: 'Brazo Izquierdo', top: '36%', left: '39.5%' }, // Más a la izquierda (en imagen es derecha)
-            { name: 'Abdomen', top: '41%', left: '26%' },       // OK
+            { name: 'Brazo Izquierdo', top: '36%', left: '40.5%' }, // Acercado a la izquierda
+            { name: 'Abdomen', top: '41%', left: '26%' },       
             { name: 'Muñeca Derecha', top: '50%', left: '9%' },
-            { name: 'Muñeca Izquierda', top: '50%', left: '44%' }, // Más a la izquierda (en imagen es derecha)
-            { name: 'Cadera', top: '51%', left: '26%' },        // Subido
-            { name: 'Muslo Derecho', top: '63%', left: '20%' },  // Subido
-            { name: 'Muslo Izquierdo', top: '63%', left: '32%' }, // Subido
-            { name: 'Rodilla Derecho', top: '74%', left: '20%' }, // Subido
-            { name: 'Rodilla Izquierda', top: '74%', left: '32%' }, // Subido
-            { name: 'Tobillo Derecho', top: '91%', left: '21%' }, // Subido
-            { name: 'Tobillo Izquierdo', top: '91%', left: '31%' }, // Subido
+            { name: 'Muñeca Izquierda', top: '50%', left: '45.5%' }, // Acercado a la izquierda
+            { name: 'Cadera', top: '50%', left: '26%' },        // Subido un poco
+            { name: 'Muslo Derecho', top: '61%', left: '20%' },  // Subido un poco
+            { name: 'Muslo Izquierdo', top: '61%', left: '32%' }, // Subido un poco
+            { name: 'Rodilla Derecho', top: '72%', left: '20%' }, // Subido un poco
+            { name: 'Rodilla Izquierda', top: '72%', left: '32%' }, // Subido un poco
+            { name: 'Tobillo Derecho', top: '89%', left: '21%' }, // Subido un poco
+            { name: 'Tobillo Izquierdo', top: '89%', left: '31%' }, // Subido un poco
 
             // VISTA POSTERIOR (Siguiendo la lógica de altura frontal)
             { name: 'Nuca', top: '15%', left: '77%' },
