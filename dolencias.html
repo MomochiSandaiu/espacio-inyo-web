@@ -106,17 +106,17 @@
             { name: 'Tobillo Derecho', top: '82.5%', left: '21%' }, 
             { name: 'Tobillo Izquierdo', top: '82.5%', left: '30%' }, 
 
-            // VISTA POSTERIOR (AJUSTE QUIRÚRGICO AL 72.5%)
-            { name: 'Nuca', top: '15%', left: '72.5%' },
-            { name: 'Espalda Alta', top: '27%', left: '72.5%' },
-            { name: 'Escápula Derecha', top: '27%', left: '66.5%' },
-            { name: 'Escápula Izquierda', top: '27%', left: '78.5%' },
-            { name: 'Columna', top: '38%', left: '72.5%' },
-            { name: 'Región Lumbar', top: '45.5%', left: '72.5%' },
-            { name: 'Glúteos', top: '53.5%', left: '72.5%' },
-            { name: 'Gemelo Derecho', top: '75%', left: '67.5%' },
-            { name: 'Gemelo Izquierdo', top: '75%', left: '77.5%' },
-            { name: 'Talón', top: '88.5%', left: '72.5%' }
+            // VISTA POSTERIOR (AJUSTE QUIRÚRGICO AL 71%)
+            { name: 'Nuca', top: '15%', left: '71%' },
+            { name: 'Espalda Alta', top: '27%', left: '71%' },
+            { name: 'Escápula Derecha', top: '27%', left: '65%' },
+            { name: 'Escápula Izquierda', top: '27%', left: '77%' },
+            { name: 'Columna', top: '38%', left: '71%' },
+            { name: 'Región Lumbar', top: '45.5%', left: '71%' },
+            { name: 'Glúteos', top: '53.5%', left: '71%' },
+            { name: 'Gemelo Derecho', top: '75%', left: '66%' },
+            { name: 'Gemelo Izquierdo', top: '75%', left: '76%' },
+            { name: 'Talón', top: '88.5%', left: '71%' }
         ];
 
         function loadPoints() {
@@ -155,7 +155,7 @@
         btnLimpiar.onclick = () => { selectedPoints.clear(); loadPoints(); };
 
         btnEnviar.onclick = () => {
-            if(selectedPoints.size === 0) { alert("Marcá al menos una zona."); return; }
+            if(selectedPoints.size === 0) { alert("Marque al menos una zona."); return; }
             const lista = Array.from(selectedPoints).join(", ");
             const texto = `Hola Gastón! Soy paciente de Espacio INYO. Indico mis zonas de dolor (${currentGender}): ${lista}.`;
             window.open(`https://wa.me/5491158580556?text=${encodeURIComponent(texto)}`, '_blank');
