@@ -9,9 +9,9 @@
         .pain-map-container { position: relative; display: inline-block; }
         .pain-point {
             position: absolute;
-            width: 24px;
-            height: 24px;
-            background-color: rgba(59, 130, 246, 0.4); 
+            width: 26px;
+            height: 26px;
+            background-color: rgba(59, 130, 246, 0.45); 
             border: 2px solid white;
             border-radius: 50%;
             cursor: pointer;
@@ -20,24 +20,24 @@
             z-index: 10;
         }
         .pain-point.active {
-            background-color: rgba(239, 68, 68, 0.85); 
-            box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
-            transform: translate(-50%, -50%) scale(1.3);
+            background-color: rgba(239, 68, 68, 0.9); 
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.7);
+            transform: translate(-50%, -50%) scale(1.2);
             border-color: #fff;
         }
-        /* Tooltip simple para saber qué zona es */
         .pain-point:hover::after {
             content: attr(data-name);
             position: absolute;
-            bottom: 30px;
+            bottom: 32px;
             left: 50%;
             transform: translateX(-50%);
-            background: #334155;
+            background: #1e293b;
             color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 10px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
             white-space: nowrap;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
@@ -45,36 +45,39 @@
 
     <div class="max-w-3xl mx-auto p-4 md:p-8">
         <header class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-slate-800">Evaluación de Dolor</h1>
-            <p class="text-slate-600 mt-2">Por favor, toca las zonas donde sientes molestias hoy</p>
+            <h1 class="text-3xl font-bold text-slate-800 tracking-tight">Evaluación Corporal</h1>
+            <p class="text-slate-500 mt-2 font-medium">Toca las zonas de dolor o molestia para tu sesión</p>
         </header>
 
         <div class="flex justify-center mb-6">
-            <div class="bg-white p-1 rounded-2xl shadow-sm border flex gap-1">
-                <button id="btnMujer" class="px-8 py-2 rounded-xl transition-all duration-300 bg-blue-600 text-white font-medium">Mujer</button>
-                <button id="btnHombre" class="px-8 py-2 rounded-xl transition-all duration-300 text-slate-600 font-medium">Hombre</button>
+            <div class="bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200 flex gap-1">
+                <button id="btnMujer" class="px-8 py-2.5 rounded-xl transition-all duration-300 bg-blue-600 text-white font-semibold shadow-md">Mujer</button>
+                <button id="btnHombre" class="px-8 py-2.5 rounded-xl transition-all duration-300 text-slate-500 font-semibold hover:bg-slate-50">Hombre</button>
             </div>
         </div>
 
         <div class="flex justify-center">
             <div class="pain-map-container" id="mapContainer">
-                <img id="bodyImg" src="imagen/cuerpo-mujer.png" alt="Esquema corporal" class="max-w-full h-auto rounded-2xl shadow-xl border border-white">
+                <img id="bodyImg" src="imagen/cuerpo-mujer.png" alt="Esquema corporal" class="max-w-full h-auto rounded-3xl shadow-2xl border-4 border-white">
                 </div>
         </div>
 
         <div class="mt-6 text-center">
-            <p id="counter" class="text-sm font-medium text-slate-500 uppercase tracking-wider">0 zonas seleccionadas</p>
+            <span id="counter" class="px-4 py-1.5 bg-slate-200 text-slate-700 rounded-full text-xs font-bold uppercase tracking-widest">0 zonas marcadas</span>
         </div>
 
         <div class="mt-8 flex flex-col gap-4">
-            <button id="btnEnviar" class="w-full bg-emerald-500 text-white py-4 rounded-2xl font-bold text-lg shadow-lg hover:bg-emerald-600 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+            <button id="btnEnviar" class="w-full bg-emerald-500 text-white py-4 rounded-2xl font-extrabold text-lg shadow-lg hover:bg-emerald-600 active:scale-95 transition-all flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
                 <span>Enviar Reporte a Gastón</span>
             </button>
-            <button id="btnLimpiar" class="text-slate-400 text-sm hover:text-slate-600 transition underline underline-offset-4">Limpiar todas las marcas</button>
+            <button id="btnLimpiar" class="text-slate-400 text-sm font-medium hover:text-rose-500 transition-colors">Limpiar mapa</button>
         </div>
         
-        <footer class="mt-12 text-center text-slate-400 text-xs uppercase tracking-widest">
-            Espacio INYO - Terapias Japonesas
+        <footer class="mt-12 text-center text-slate-400 text-[10px] uppercase tracking-[0.2em] font-bold">
+            Espacio INYO • Calistenia & Terapias Japonesas
         </footer>
     </div>
 
@@ -90,106 +93,34 @@
         let selectedPoints = new Set();
         let currentGender = 'Mujer';
 
-        // Configuración Quirúrgica de Puntos (Frente y Espalda)
+        // Calibración Quirúrgica: Desplazados a la derecha y abajo
         const pointsConfig = [
-            // Vista Frontal (Izquierda de la imagen aprox)
-            { name: 'Cabeza/Frente', top: '7%', left: '22%' },
-            { name: 'Cuello (Frente)', top: '14%', left: '22%' },
-            { name: 'Pecho', top: '24%', left: '22%' },
-            { name: 'Abdomen', top: '35%', left: '22%' },
-            { name: 'Hombro Der', top: '19%', left: '14%' },
-            { name: 'Hombro Izq', top: '19%', left: '30%' },
-            { name: 'Brazo Der', top: '30%', left: '10%' },
-            { name: 'Brazo Izq', top: '30%', left: '34%' },
-            { name: 'Muñeca Der', top: '44%', left: '6%' },
-            { name: 'Muñeca Izq', top: '44%', left: '38%' },
-            { name: 'Cadera', top: '48%', left: '22%' },
-            { name: 'Muslo Der', top: '60%', left: '16%' },
-            { name: 'Muslo Izq', top: '60%', left: '28%' },
-            { name: 'Rodilla Der', top: '72%', left: '16%' },
-            { name: 'Rodilla Izq', top: '72%', left: '28%' },
-            { name: 'Tobillo Der', top: '90%', left: '17%' },
-            { name: 'Tobillo Izq', top: '90%', left: '27%' },
+            // VISTA FRONTAL
+            { name: 'Frente/Cabeza', top: '10%', left: '26%' },
+            { name: 'Cuello', top: '16%', left: '26%' },
+            { name: 'Hombro Derecho', top: '21%', left: '17%' },
+            { name: 'Hombro Izquierdo', top: '21%', left: '35%' },
+            { name: 'Pecho', top: '27%', left: '26%' },
+            { name: 'Brazo Derecho', top: '34%', left: '13%' },
+            { name: 'Brazo Izquierdo', top: '34%', left: '39%' },
+            { name: 'Abdomen', top: '39%', left: '26%' },
+            { name: 'Muñeca Derecha', top: '48%', left: '9%' },
+            { name: 'Muñeca Izquierda', top: '48%', left: '43%' },
+            { name: 'Cadera', top: '51%', left: '26%' },
+            { name: 'Muslo Derecho', top: '63%', left: '20%' },
+            { name: 'Muslo Izquierdo', top: '63%', left: '32%' },
+            { name: 'Rodilla Derecha', top: '74%', left: '20%' },
+            { name: 'Rodilla Izquierda', top: '74%', left: '32%' },
+            { name: 'Tobillo Derecho', top: '91%', left: '21%' },
+            { name: 'Tobillo Izquierdo', top: '91%', left: '31%' },
 
-            // Vista Posterior (Derecha de la imagen aprox)
+            // VISTA POSTERIOR
             { name: 'Nuca', top: '11%', left: '77%' },
-            { name: 'Espalda Alta', top: '22%', left: '77%' },
-            { name: 'Columna Dorsal', top: '32%', left: '77%' },
-            { name: 'Región Lumbar', top: '45%', left: '77%' },
-            { name: 'Escápula Der', top: '22%', left: '70%' },
-            { name: 'Escápula Izq', top: '22%', left: '84%' },
-            { name: 'Sacro/Glúteos', top: '53%', left: '77%' },
-            { name: 'Gemelo Der', top: '78%', left: '71%' },
-            { name: 'Gemelo Izq', top: '78%', left: '83%' },
-            { name: 'Talón', top: '93%', left: '77%' }
-        ];
-
-        function loadPoints() {
-            // Limpiar puntos existentes
-            container.querySelectorAll('.pain-point').forEach(p => p.remove());
-            
-            pointsConfig.forEach(p => {
-                const dot = document.createElement('div');
-                dot.className = 'pain-point';
-                dot.setAttribute('data-name', p.name);
-                dot.style.top = p.top;
-                dot.style.left = p.left;
-                
-                dot.onclick = () => {
-                    dot.classList.toggle('active');
-                    if(selectedPoints.has(p.name)) {
-                        selectedPoints.delete(p.name);
-                    } else {
-                        selectedPoints.add(p.name);
-                    }
-                    updateCounter();
-                };
-                container.appendChild(dot);
-            });
-        }
-
-        function updateCounter() {
-            counter.innerText = `${selectedPoints.size} zonas seleccionadas`;
-        }
-
-        // Cambio de Género con rutas a carpeta 'imagen'
-        btnMujer.onclick = () => {
-            currentGender = 'Mujer';
-            bodyImg.src = 'imagen/cuerpo-mujer.png';
-            btnMujer.className = 'px-8 py-2 rounded-xl bg-blue-600 text-white font-medium shadow-md';
-            btnHombre.className = 'px-8 py-2 rounded-xl text-slate-600 font-medium';
-            limpiar();
-        };
-
-        btnHombre.onclick = () => {
-            currentGender = 'Hombre';
-            bodyImg.src = 'imagen/cuerpo-hombre.png';
-            btnHombre.className = 'px-8 py-2 rounded-xl bg-blue-600 text-white font-medium shadow-md';
-            btnMujer.className = 'px-8 py-2 rounded-xl text-slate-600 font-medium';
-            limpiar();
-        };
-
-        function limpiar() {
-            selectedPoints.clear();
-            updateCounter();
-            loadPoints();
-        }
-        btnLimpiar.onclick = limpiar;
-
-        // Enviar a WhatsApp (Usando el número de Gastón Burgos)
-        btnEnviar.onclick = () => {
-            if(selectedPoints.size === 0) {
-                alert("Por favor, marca al menos una zona de dolencia.");
-                return;
-            }
-            const lista = Array.from(selectedPoints).join(", ");
-            const texto = `Hola Gastón! Soy paciente de Espacio INYO. Estas son mis zonas de dolencia (${currentGender}): ${lista}.`;
-            const url = `https://wa.me/5491158580556?text=${encodeURIComponent(texto)}`;
-            window.open(url, '_blank');
-        };
-
-        // Inicio
-        window.onload = loadPoints;
-    </script>
-</body>
-</html>
+            { name: 'Espalda Alta', top: '23%', left: '77%' },
+            { name: 'Escápula Derecha', top: '23%', left: '70%' },
+            { name: 'Escápula Izquierda', top: '23%', left: '84%' },
+            { name: 'Columna/Dorso', top: '34%', left: '77%' },
+            { name: 'Región Lumbar', top: '46%', left: '77%' },
+            { name: 'Glúteos', top: '55%', left: '77%' },
+            { name: 'Gemelo Derecho', top: '78%', left: '71%' },
+            { name: 'Gemelo Izquierdo', top: '78%', left: '8
