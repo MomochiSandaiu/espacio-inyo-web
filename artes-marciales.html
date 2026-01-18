@@ -23,7 +23,7 @@
             right: -5%;
             top: 10%;
             font-size: 25rem;
-            color: rgba(185, 28, 28, 0.05); /* Rojo sangre muy tenue */
+            color: rgba(185, 28, 28, 0.05);
             z-index: 0;
             user-select: none;
             filter: blur(2px);
@@ -55,27 +55,73 @@
         <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-500 text-xl"><i class="fas fa-times"></i></label>
         <div class="mt-12">
             <p class="text-[10px] uppercase tracking-[0.3em] text-red-700 mb-8 font-bold border-b border-white/5 pb-2 italic">Espacio INYO ☯️</p>
-            <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold">
-                <li><a href="https://inyodo.github.io/masaje-japones-/" class="block hover:text-red-600 transition italic">Masaje Japonés</a></li>
-                <li><a href="https://inyodo.github.io/hiit-calistenia/" class="block hover:text-red-600 transition italic">HIIT Calistenia</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-red-600 transition italic">Clases de Yoga</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block hover:text-red-600 transition italic">Zen Stretching</a></li>
-                <li><a href="#" class="block text-red-700 font-bold underline underline-offset-8 italic">Artes Marciales</a></li>
+            <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold italic">
+                <li><a href="https://inyodo.github.io/masaje-japones-/" class="block hover:text-red-600 transition">Masaje Japonés</a></li>
+                <li><a href="https://inyodo.github.io/hiit-calistenia/" class="block hover:text-red-600 transition">HIIT Calistenia</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-red-600 transition">Clases de Yoga</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block hover:text-red-600 transition">Zen Stretching</a></li>
+                <li><a href="#" class="block text-red-700 font-bold underline underline-offset-8">Artes Marciales</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="hero-bujinkan flex flex-col justify-center items-center text-center p-6 relative overflow-hidden">
         <div class="dragon-bg font-bold">竜</div>
-        <div class="z-10 fade-in visible">
-            <p class="text-red-700 text-xs tracking-[0.8em] mb-6 font-bold uppercase italic italic">Bujinkan Budo Taijutsu</p>
+        <div class="z-10 fade-in visible text-center">
+            <p class="text-red-700 text-xs tracking-[0.8em] mb-6 font-bold uppercase italic">Bujinkan Budo Taijutsu</p>
             <h1 class="text-6xl md:text-9xl font-bold mb-4 tracking-tighter italic uppercase leading-none">Kiryū Dōjō 🐉</h1>
             <div class="w-32 h-1 bg-red-800 mx-auto my-8"></div>
             <p class="text-xl md:text-2xl text-stone-400 max-w-3xl mx-auto font-light italic leading-relaxed">
-                "El Dragón que se Eleva". Iniciado en 2002 por Gastón Burgos, preservando la efectividad del arte del guerrero.
+                "El Dragón que se Eleva". Preservando la esencia y la efectividad del arte del guerrero bajo la guía de Gastón Burgos.
             </p>
         </div>
     </header>
+
+    <section class="section-dark py-32 px-6 border-b border-white/5">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-5xl mb-16 italic uppercase font-bold text-white tracking-tight border-l-4 border-red-800 pl-8">Mi Trayectoria en el Budo</h2>
+            <div class="space-y-12 text-stone-400 text-lg italic leading-relaxed">
+                <p class="fade-in visible">
+                    Inicié mi camino en las artes marciales en el año **2002**, sumergiéndome en el estudio profundo de la **Bujinkan Budo Taijutsu**. A lo largo de estas décadas, he dedicado mi vida a comprender la biomecánica corporal y la psicología del conflicto que define a este arte milenario.
+                </p>
+                <p class="fade-in visible">
+                    Mi formación se centra en la preservación de las tradiciones, integrando los principios del *Taijutsu* con un enfoque pragmático y real, adaptable a la vida moderna desde la sede de Espacio INYO.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-center text-3xl mb-24 italic uppercase font-bold tracking-[0.4em] text-stone-500">Escuelas Tradicionales</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="p-10 border border-white/5 bg-white/5 hover:bg-white/10 transition duration-500 italic">
+                    <h3 class="text-red-700 font-bold mb-4 tracking-widest uppercase">Togakure Ryu</h3>
+                    <p class="text-stone-500 text-sm">Estrategia, adaptabilidad y el uso de la distancia para prevalecer.</p>
+                </div>
+                <div class="p-10 border border-white/5 bg-white/5 hover:bg-white/10 transition duration-500 italic">
+                    <h3 class="text-red-700 font-bold mb-4 tracking-widest uppercase">Gyokko Ryu</h3>
+                    <p class="text-stone-500 text-sm">La base del movimiento corporal. Uso de puntos de presión y fluidez circular.</p>
+                </div>
+                <div class="p-10 border border-white/5 bg-white/5 hover:bg-white/10 transition duration-500 italic">
+                    <h3 class="text-red-700 font-bold mb-4 tracking-widest uppercase">Koto Ryu</h3>
+                    <p class="text-stone-500 text-sm">El arte de derribar al oponente a través de la estructura ósea y golpes precisos.</p>
+                </div>
+                <div class="p-10 border border-white/5 bg-white/5 hover:bg-white/10 transition duration-500 italic">
+                    <h3 class="text-red-700 font-bold mb-4 tracking-widest uppercase">Shinden Fudo Ryu</h3>
+                    <p class="text-stone-500 text-sm">Estudio de la postura natural y la fuerza ininterrumpida basada en la naturaleza.</p>
+                </div>
+                <div class="p-10 border border-white/5 bg-white/5 hover:bg-white/10 transition duration-500 italic">
+                    <h3 class="text-red-700 font-bold mb-4 tracking-widest uppercase">Kukishinden Ryu</h3>
+                    <p class="text-stone-500 text-sm">Especialistas en el uso de armas tradicionales y tácticas de campo.</p>
+                </div>
+                <div class="p-10 border border-white/5 bg-white/5 hover:bg-white/10 transition duration-500 italic">
+                    <h3 class="text-red-700 font-bold mb-4 tracking-widest uppercase">Takagi Yoshin Ryu</h3>
+                    <p class="text-stone-500 text-sm">El arte de la proyección y el control articular a corta distancia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="section-dark py-20 px-6 border-y border-white/5">
         <div class="max-w-4xl mx-auto text-center">
@@ -83,62 +129,61 @@
             <div class="bg-white/5 p-12 border border-white/5 inline-block w-full">
                 <p class="text-3xl md:text-4xl font-bold mb-2 uppercase italic tracking-tighter">Martes y Jueves</p>
                 <p class="text-red-600 text-2xl font-bold mb-6 italic">19:00 HS</p>
-                <p class="text-stone-500 text-sm italic italic tracking-widest uppercase">Gdor. Carlos Tejedor 335, Lanús Oeste.</p>
+                <p class="text-stone-500 text-sm italic tracking-widest uppercase">Gdor. Carlos Tejedor 335, Lanús Oeste.</p>
             </div>
         </div>
     </section>
 
     <section id="pricing" class="section-dark py-32 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-center text-5xl mb-20 italic uppercase font-bold text-white tracking-tighter">Formación Marcial 2026</h2>
-            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+            <h2 class="text-center text-5xl mb-20 italic uppercase font-bold text-white tracking-tighter">Inversión Marcial</h2>
+            <div class="grid md:grid-cols-3 gap-8 items-stretch italic">
                 <div class="price-card p-10 flex flex-col">
-                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic">Pack Guerrero (1x)</h3>
-                    <div class="text-5xl font-bold mb-2 text-white italic">$49.000</div>
-                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8 italic">1 vez x semana</p>
-                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow italic">
+                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs">Pack Guerrero (1x)</h3>
+                    <div class="text-5xl font-bold mb-2 text-white">$49.000</div>
+                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8">1 vez x semana</p>
+                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow">
                         <li><i class="fas fa-check text-red-800 mr-2"></i> 4 Clases de Bujinkan al mes</li>
-                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>BENEFICIO HIIT:</strong> 1 Clase de HIIT semanal (previa a la práctica)</li>
-                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>RECUPERACIÓN:</strong> 1 Clase mensual de Zen Stretching</li>
+                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>BENEFICIO HIIT:</strong> 1 Clase semanal (Día de entrenamiento)</li>
+                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>ZEN STRETCHING:</strong> 1 Clase mensual de recuperación</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block border border-red-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition italic">Inscribirme</a>
+                    <a href="https://wa.me/541176194825" class="block border border-red-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition">Inscribirme</a>
                 </div>
 
-                <div class="bg-red-950/20 p-12 border-2 border-red-800 relative transform scale-105 shadow-2xl flex flex-col">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-800 text-white text-[9px] px-4 py-1 font-bold uppercase tracking-widest italic">Máximo Rendimiento</span>
-                    <h3 class="text-red-600 font-bold mb-4 uppercase text-xs italic">Pack Shogun (2x)</h3>
-                    <div class="text-6xl font-bold mb-2 text-white italic">$55.000</div>
-                    <p class="text-stone-500 text-[10px] font-bold uppercase mb-8 italic">2 veces x semana</p>
-                    <ul class="text-[11px] text-stone-300 space-y-4 mb-10 font-bold flex-grow italic">
+                <div class="bg-red-950/20 p-12 border-2 border-red-800 relative transform scale-105 shadow-2xl flex flex-col italic">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-800 text-white text-[9px] px-4 py-1 font-bold uppercase tracking-widest">Máximo Rendimiento</span>
+                    <h3 class="text-red-600 font-bold mb-4 uppercase text-xs">Pack Shogun (2x)</h3>
+                    <div class="text-6xl font-bold mb-2 text-white">$55.000</div>
+                    <p class="text-stone-500 text-[10px] font-bold uppercase mb-8">2 veces x semana</p>
+                    <ul class="text-[11px] text-stone-300 space-y-4 mb-10 font-bold flex-grow">
                         <li><i class="fas fa-star text-red-600 mr-2"></i> 8 Clases de Bujinkan al mes</li>
-                        <li><i class="fas fa-star text-red-600 mr-2"></i> <strong>BENEFICIO HIIT:</strong> 2 Clases de HIIT semanales (Complemento físico)</li>
-                        <li><i class="fas fa-star text-red-600 mr-2"></i> <strong>RECUPERACIÓN:</strong> 1 Clase mensual de Zen Stretching</li>
+                        <li><i class="fas fa-star text-red-600 mr-2"></i> <strong>BENEFICIO HIIT:</strong> 2 Clases semanales complementarias</li>
+                        <li><i class="fas fa-star text-red-600 mr-2"></i> <strong>ZEN STRETCHING:</strong> 1 Clase mensual de recuperación</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block bg-red-800 text-white py-4 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition italic">Elegir Shogun</a>
+                    <a href="https://wa.me/541176194825" class="block bg-red-800 text-white py-4 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition">Elegir Shogun</a>
                 </div>
 
-                <div class="price-card p-10 flex flex-col">
-                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic">Iniciación</h3>
-                    <div class="text-4xl font-bold mb-2 text-white italic">GRATIS</div>
-                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8 italic">Mes Enero y Febrero</p>
-                    <p class="text-[11px] text-stone-500 italic mb-8 italic">Vení a conocer el Kiryū Dōjō sin cargo durante el verano. Clase suelta regular: $18.000.</p>
-                    <a href="https://wa.me/541176194825" class="mt-auto block border border-white/10 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition italic">Reservar Prueba</a>
+                <div class="price-card p-10 flex flex-col italic">
+                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs">Prueba Marcial</h3>
+                    <div class="text-4xl font-bold mb-2 text-white">GRATIS</div>
+                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8 italic italic">Enero y Febrero</p>
+                    <p class="text-[11px] text-stone-500 mb-8">Clase suelta regular: $18.000. Iniciá tu camino este verano sin costo de prueba.</p>
+                    <a href="https://wa.me/541176194825" class="mt-auto block border border-white/10 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition">Reservar</a>
                 </div>
             </div>
-            <p class="mt-16 text-center text-[9px] text-stone-600 uppercase tracking-[0.3em] font-bold italic italic">Las clases HIIT son beneficios exclusivos para el día de entrenamiento marcial y no son acumulables.</p>
         </div>
     </section>
 
     <footer class="py-32 px-6 bg-black text-center border-t border-white/5">
-        <h2 class="text-5xl mb-20 italic tracking-tighter uppercase font-bold text-white italic">Espacio INYO ☯️</h2>
+        <h2 class="text-5xl mb-20 italic tracking-tighter uppercase font-bold text-white">Espacio INYO ☯️</h2>
         <div class="grid md:grid-cols-2 gap-20 mb-24 max-w-5xl mx-auto italic">
             <div class="flex flex-col items-center">
-                <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-40 h-40 mb-6 object-contain grayscale invert opacity-50 hover:opacity-100 transition">
-                <p class="text-[11px] uppercase font-bold text-stone-500 tracking-[0.4em] italic underline underline-offset-8 decoration-red-900">WhatsApp: 11 7619-4825</p>
+                <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-40 h-40 mb-6 object-contain grayscale invert opacity-50">
+                <p class="text-[11px] uppercase font-bold text-stone-500 tracking-[0.4em] underline underline-offset-8 decoration-red-900">WhatsApp: 11 7619-4825</p>
             </div>
             <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left border-l border-white/5 md:pl-20">
-                <p class="text-sm font-bold uppercase tracking-widest text-red-700 mb-4 italic">Kiryū Dōjō 🐉</p>
-                <p class="text-stone-500 text-sm italic leading-relaxed">Gdor. Carlos Tejedor 335, Lanús Oeste Centro.</p>
+                <p class="text-sm font-bold uppercase tracking-widest text-red-700 mb-4">Kiryū Dōjō 🐉</p>
+                <p class="text-stone-500 text-sm leading-relaxed">Gdor. Carlos Tejedor 335, Lanús Oeste Centro.</p>
             </div>
         </div>
         <div class="border-t border-white/5 pt-20">
