@@ -30,37 +30,39 @@
         }
 
         .section-dark { background-color: #0c0a09; position: relative; overflow: hidden; }
+        .border-gold { border-color: #8a744d; }
+        .text-gold { color: #8a744d; }
+
         #menu-toggle:checked ~ #side-menu { transform: translateX(0); }
         #menu-toggle:checked ~ #menu-overlay { display: block; }
 
         .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+        .ryuha-item { border: 1px solid rgba(255,255,255,0.05); margin-bottom: 1rem; background: rgba(255,255,255,0.01); }
+        .ryuha-header { cursor: pointer; transition: all 0.3s ease; }
+        .ryuha-header:hover { background: rgba(153, 27, 27, 0.15); }
+        .ryuha-content { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0, 1, 0, 1); }
+        .ryuha-item.active .ryuha-content { max-height: 1000px; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.05); transition: max-height 1s ease-in; }
+        .ryuha-item.active i { transform: rotate(180deg); color: #991b1b; }
+
         .price-card { background: linear-gradient(145deg, #171717, #0c0a09); border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s ease; }
         .price-card:hover { border-color: #991b1b; transform: translateY(-5px); }
-
-        /* Estilos Acordeón Quirúrgico */
-        .ryuha-accordion { border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .ryuha-header { cursor: pointer; transition: background 0.3s; }
-        .ryuha-header:hover { background: rgba(153, 27, 27, 0.1); }
-        .ryuha-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background: rgba(255,255,255,0.02); }
-        .ryuha-item.active .ryuha-content { max-height: 200px; padding: 1.5rem; }
-        .ryuha-item.active i { transform: rotate(180deg); color: #991b1b; }
     </style>
 </head>
 <body class="antialiased">
 
     <input type="checkbox" id="menu-toggle" class="hidden">
     <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/5 backdrop-blur-md p-3 rounded-sm border border-white/10 hover:bg-red-900/40 transition duration-300">
-        <div class="w-6 h-0.5 bg-white mb-1.5"></div>
-        <div class="w-6 h-0.5 bg-white mb-1.5"></div>
-        <div class="w-6 h-0.5 bg-white"></div>
+        <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-white transition"></div>
     </label>
 
     <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 hidden"></label>
 
     <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#0c0a09] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-white/5">
-        <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-500 text-xl"><i class="fas fa-times"></i></label>
+        <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-500 text-xl transition hover:text-white"><i class="fas fa-times"></i></label>
         <div class="mt-12">
             <p class="text-[10px] uppercase tracking-[0.3em] text-red-700 mb-8 font-bold border-b border-white/5 pb-2 italic">Espacio INYO ☯️</p>
             <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold italic">
@@ -74,14 +76,17 @@
     </nav>
 
     <header class="hero-bujinkan flex flex-col justify-center items-center text-center p-6 relative overflow-hidden">
-        <div class="dragon-bg font-bold font-serif">竜</div>
+        <div class="dragon-bg font-bold">竜</div>
         <div class="z-10 fade-in visible">
-            <p class="text-red-700 text-xs tracking-[0.8em] mb-6 font-bold uppercase italic">Bujinkan Budo Taijutsu</p>
+            <p class="text-red-700 text-xs tracking-[0.8em] mb-6 font-bold uppercase italic italic">Bujinkan Budo Taijutsu</p>
             <h1 class="text-6xl md:text-9xl font-bold mb-4 tracking-tighter italic uppercase leading-none">Kiryū Dōjō 🐉</h1>
             <div class="w-32 h-1 bg-red-800 mx-auto my-8"></div>
             <p class="text-xl md:text-2xl text-stone-400 max-w-3xl mx-auto font-light italic leading-relaxed">
                 "El Dragón que se Eleva". Preservando la esencia y la efectividad del arte del guerrero bajo la guía de Gastón Burgos.
             </p>
+        </div>
+        <div class="absolute bottom-10 animate-bounce">
+            <i class="fas fa-chevron-down text-stone-600"></i>
         </div>
     </header>
 
@@ -90,10 +95,10 @@
             <h2 class="text-4xl md:text-5xl mb-16 italic uppercase font-bold text-white tracking-tight border-l-4 border-red-800 pl-8">Mi Trayectoria en el Budo</h2>
             <div class="space-y-12 text-stone-400 text-lg italic leading-relaxed">
                 <p class="fade-in visible">
-                    Inicié mi camino en las artes marciales en el año **2002**, sumergiéndome en el estudio profundo de la **Bujinkan Budo Taijutsu**. A lo largo de estas décadas, he dedicado mi vida a comprender la biomecánica corporal y la psicología del conflicto que define a este arte milenario.
+                    Inicié mi camino en las artes marciales en el año **2002**, sumergiéndome en el estudio profundo de la **Bujinkan Budo Taijutsu**. A lo largo de estas décadas, he dedicado mi vida a comprender no solo la técnica física, sino la biomecánica corporal y la psicología del conflicto que define a este arte milenario.
                 </p>
                 <p class="fade-in visible">
-                    Mi formación se centra en la preservación de las tradiciones, integrando los principios del *Taijutsu* con un enfoque pragmático y real, adaptable a la vida moderna desde la sede de Espacio INYO.
+                    Mi formación se ha centrado en la preservación de las tradiciones, integrando los principios del *Taijutsu* (movimiento del cuerpo) con un enfoque pragmático y real, adaptable a la vida moderna sin perder la mística ancestral desde la sede de Espacio INYO.
                 </p>
             </div>
         </div>
@@ -101,96 +106,114 @@
 
     <section class="section-dark py-32 px-6">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-center text-3xl mb-16 italic uppercase font-bold tracking-[0.4em] text-stone-500">Las 9 Tradiciones (Ryuha)</h2>
-            <div class="space-y-2 italic">
+            <h2 class="text-center text-3xl mb-20 italic uppercase font-bold tracking-[0.4em] text-stone-500 italic">Las 9 Tradiciones (Ryuha)</h2>
+            <div class="space-y-4 italic">
                 
-                <div class="ryuha-item border border-white/5">
-                    <div class="ryuha-header p-6 flex justify-between items-center transition" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase">Togakure Ryu Ninpo</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform"></i>
+                <div class="ryuha-item">
+                    <div class="ryuha-header p-8 flex justify-between items-center" onclick="toggleRyu(this)">
+                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Togakure Ryu Ninpo</h3>
+                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
                     </div>
-                    <div class="ryuha-content text-stone-400 text-sm leading-relaxed">
-                        Fundada hace 800 años, es la base del Ninjutsu. Se especializa en el uso de la distancia, escapes ninja y estrategias de sigilo para la supervivencia.
-                    </div>
-                </div>
-
-                <div class="ryuha-item border border-white/5">
-                    <div class="ryuha-header p-6 flex justify-between items-center transition" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase">Gyokko Ryu Kosshijutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform"></i>
-                    </div>
-                    <div class="ryuha-content text-stone-400 text-sm leading-relaxed">
-                        La escuela de "El Tigre de Diamante". Se centra en el movimiento circular, ataques a puntos de presión (Kyusho) y la fluidez extrema del cuerpo.
+                    <div class="ryuha-content">
+                        <p class="text-stone-400 text-sm leading-relaxed italic">
+                            Fundada hace más de 800 años, es la base del Ninjutsu en la Bujinkan. Esta escuela se especializa en el uso estratégico de la distancia, técnicas de escape (Shinobi Iri) y el uso de herramientas tradicionales para prevalecer en situaciones de supervivencia extrema.
+                        </p>
                     </div>
                 </div>
 
-                <div class="ryuha-item border border-white/5">
-                    <div class="ryuha-header p-6 flex justify-between items-center transition" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase">Koto Ryu Koppojutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform"></i>
+                <div class="ryuha-item">
+                    <div class="ryuha-header p-8 flex justify-between items-center" onclick="toggleRyu(this)">
+                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Gyokko Ryu Kosshijutsu</h3>
+                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
                     </div>
-                    <div class="ryuha-content text-stone-400 text-sm leading-relaxed">
-                        "Derribar al Tigre". Especializada en romper la estructura ósea del oponente mediante ataques directos y una distancia de combate corta y agresiva.
-                    </div>
-                </div>
-
-                <div class="ryuha-item border border-white/5">
-                    <div class="ryuha-header p-6 flex justify-between items-center transition" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase">Shinden Fudo Ryu Dakentaijutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform"></i>
-                    </div>
-                    <div class="ryuha-content text-stone-400 text-sm leading-relaxed">
-                        La escuela del "Corazón Inmutable". Enfatiza la postura natural (Shizen) y el uso de la fuerza corporal de manera natural sin posturas rígidas.
+                    <div class="ryuha-content">
+                        <p class="text-stone-400 text-sm leading-relaxed italic">
+                            Conocida como la escuela de "El Tigre de Diamante". Es la columna vertebral del movimiento corporal (Taijutsu). Se centra en el movimiento circular, el control del equilibrio del adversario y ataques precisos a puntos vitales y centros nerviosos (Kyusho).
+                        </p>
                     </div>
                 </div>
 
-                <div class="ryuha-item border border-white/5">
-                    <div class="ryuha-header p-6 flex justify-between items-center transition" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase">Kukishinden Ryu Happo Bikenjutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform"></i>
+                <div class="ryuha-item">
+                    <div class="ryuha-header p-8 flex justify-between items-center" onclick="toggleRyu(this)">
+                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Koto Ryu Koppojutsu</h3>
+                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
                     </div>
-                    <div class="ryuha-content text-stone-400 text-sm leading-relaxed">
-                        Escuela de los 9 Dioses Demonios. Reconocida por su maestría en el uso de armas (espada, palo, lanza) y técnicas aplicadas históricamente en campos de batalla.
-                    </div>
-                </div>
-
-                <div class="ryuha-item border border-white/5">
-                    <div class="ryuha-header p-6 flex justify-between items-center transition" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase">Takagi Yoshin Ryu Jutaijutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform"></i>
-                    </div>
-                    <div class="ryuha-content text-stone-400 text-sm leading-relaxed">
-                        Especializada en técnicas de control, proyecciones y luxaciones articulares a corta distancia, diseñadas originalmente para la defensa en interiores.
+                    <div class="ryuha-content">
+                        <p class="text-stone-400 text-sm leading-relaxed italic">
+                            Significa "Derribar al Tigre". Esta tradición se especializa en la destrucción de la estructura ósea del oponente. Utiliza distancias de combate muy cortas, movimientos lineales agresivos y golpes secos diseñados para finalizar el conflicto de manera inmediata.
+                        </p>
                     </div>
                 </div>
 
-                <div class="ryuha-item border border-white/5">
-                    <div class="ryuha-header p-6 flex justify-between items-center transition" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase">Gikan Ryu Koppojutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform"></i>
+                <div class="ryuha-item">
+                    <div class="ryuha-header p-8 flex justify-between items-center" onclick="toggleRyu(this)">
+                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Shinden Fudo Ryu Dakentaijutsu</h3>
+                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
                     </div>
-                    <div class="ryuha-content text-stone-400 text-sm leading-relaxed">
-                        "Verdad, Lealtad y Justicia". Se caracteriza por posturas bajas y un uso dinámico del equilibrio para quebrar la defensa del adversario.
-                    </div>
-                </div>
-
-                <div class="ryuha-item border border-white/5">
-                    <div class="ryuha-header p-6 flex justify-between items-center transition" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase">Gyokushin Ryu Ninpo</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform"></i>
-                    </div>
-                    <div class="ryuha-content text-stone-400 text-sm leading-relaxed">
-                        El "Corazón de Joya". Se enfoca más en el aspecto estratégico y de información del Ninpo, priorizando el control psicológico del combate.
+                    <div class="ryuha-content">
+                        <p class="text-stone-400 text-sm leading-relaxed italic">
+                            La escuela del "Corazón Inmutable". Su enseñanza principal radica en la postura natural (Shizen). Se entrena para luchar desde cualquier posición cotidiana, utilizando la fuerza de la naturaleza y el entorno para generar una potencia ininterrumpida.
+                        </p>
                     </div>
                 </div>
 
-                <div class="ryuha-item border border-white/5">
-                    <div class="ryuha-header p-6 flex justify-between items-center transition" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase">Kumogakure Ryu Ninpo</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform"></i>
+                <div class="ryuha-item">
+                    <div class="ryuha-header p-8 flex justify-between items-center" onclick="toggleRyu(this)">
+                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Kukishinden Ryu Happo Biken</h3>
+                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
                     </div>
-                    <div class="ryuha-content text-stone-400 text-sm leading-relaxed">
-                        "Oculto en las Nubes". Especializada en saltos, desplazamientos rápidos y el uso creativo del entorno para confundir al oponente.
+                    <div class="ryuha-content">
+                        <p class="text-stone-400 text-sm leading-relaxed italic">
+                            "La Escuela de los Nueve Dioses Demonios". Es famosa por su maestría en el uso de armas tradicionales japonesas como el Bo (palo largo), la Naginata (alabarda) y la espada. Sus técnicas provienen directamente de la experiencia en campos de batalla navales y terrestres.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ryuha-item">
+                    <div class="ryuha-header p-8 flex justify-between items-center" onclick="toggleRyu(this)">
+                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Takagi Yoshin Ryu Jutaijutsu</h3>
+                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
+                    </div>
+                    <div class="ryuha-content">
+                        <p class="text-stone-400 text-sm leading-relaxed italic">
+                            Una escuela de alto nivel en proyecciones, controles y luxaciones articulares. Sus técnicas fueron perfeccionadas para el combate en espacios reducidos (interiores), donde la precisión en el control del cuerpo del oponente es vital.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ryuha-item">
+                    <div class="ryuha-header p-8 flex justify-between items-center" onclick="toggleRyu(this)">
+                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Gikan Ryu Koppojutsu</h3>
+                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
+                    </div>
+                    <div class="ryuha-content">
+                        <p class="text-stone-400 text-sm leading-relaxed italic">
+                            Traducida como "Verdad, Lealtad y Justicia". Se distingue por el uso de posturas bajas y un manejo dinámico del centro de gravedad. Sus patadas y ataques de mano están diseñados para desequilibrar al adversario de forma imprevista.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ryuha-item">
+                    <div class="ryuha-header p-8 flex justify-between items-center" onclick="toggleRyu(this)">
+                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Gyokushin Ryu Ninpo</h3>
+                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
+                    </div>
+                    <div class="ryuha-content">
+                        <p class="text-stone-400 text-sm leading-relaxed italic">
+                            Esta escuela pone énfasis en los aspectos estratégicos, tácticos y de espionaje del Ninpo. Prioriza el control psicológico del combate y el uso de técnicas de proyección muy particulares que no se encuentran en otras escuelas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ryuha-item">
+                    <div class="ryuha-header p-8 flex justify-between items-center" onclick="toggleRyu(this)">
+                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Kumogakure Ryu Ninpo</h3>
+                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
+                    </div>
+                    <div class="ryuha-content">
+                        <p class="text-stone-400 text-sm leading-relaxed italic">
+                            "Oculto en las Nubes". Se especializa en el combate de salto, técnicas de escalada y el uso del entorno natural para la ocultación. Sus métodos de movimiento son únicos y extremadamente fluidos.
+                        </p>
                     </div>
                 </div>
 
@@ -204,7 +227,7 @@
             <div class="bg-white/5 p-12 border border-white/5 inline-block w-full">
                 <p class="text-3xl md:text-4xl font-bold mb-2 uppercase italic tracking-tighter">Martes y Jueves</p>
                 <p class="text-red-600 text-2xl font-bold mb-6 italic">19:00 HS</p>
-                <p class="text-stone-500 text-sm italic tracking-widest uppercase">Gdor. Carlos Tejedor 335, Lanús Oeste.</p>
+                <p class="text-stone-500 text-sm italic tracking-widest uppercase italic italic">Gdor. Carlos Tejedor 335, Lanús Oeste Centro.</p>
             </div>
         </div>
     </section>
@@ -213,53 +236,70 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-center text-5xl mb-20 italic uppercase font-bold text-white tracking-tighter">Inversión Marcial</h2>
             <div class="grid md:grid-cols-3 gap-8 items-stretch italic">
-                <div class="price-card p-10 flex flex-col">
-                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs">Pack Guerrero (1x)</h3>
-                    <div class="text-5xl font-bold mb-2 text-white">$49.000</div>
-                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8">1 vez x semana</p>
-                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow">
+                
+                <div class="price-card p-10 flex flex-col italic">
+                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic">Pack Guerrero (1x)</h3>
+                    <div class="text-5xl font-bold mb-2 text-white italic">$49.000</div>
+                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8 italic">1 vez x semana</p>
+                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow italic">
                         <li><i class="fas fa-check text-red-800 mr-2"></i> 4 Clases de Bujinkan al mes</li>
-                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>BENEFICIO HIIT:</strong> 1 Clase semanal (Día de entrenamiento)</li>
-                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>ZEN STRETCHING:</strong> 1 Clase mensual de recuperación</li>
+                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>BENEFICIO HIIT:</strong> 1 Clase semanal (Día de práctica)</li>
+                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>RECUPERACIÓN:</strong> 1 Clase mensual Zen Stretching</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block border border-red-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition">Inscribirme</a>
+                    <a href="https://wa.me/541176194825" class="mt-auto block border border-red-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition italic">Inscribirme</a>
                 </div>
 
                 <div class="bg-red-950/20 p-12 border-2 border-red-800 relative transform scale-105 shadow-2xl flex flex-col italic">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-800 text-white text-[9px] px-4 py-1 font-bold uppercase tracking-widest">Máximo Rendimiento</span>
-                    <h3 class="text-red-600 font-bold mb-4 uppercase text-xs">Pack Shogun (2x)</h3>
-                    <div class="text-6xl font-bold mb-2 text-white">$55.000</div>
-                    <p class="text-stone-500 text-[10px] font-bold uppercase mb-8">2 veces x semana</p>
-                    <ul class="text-[11px] text-stone-300 space-y-4 mb-10 font-bold flex-grow">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-800 text-white text-[9px] px-4 py-1 font-bold uppercase tracking-widest italic">Máximo Rendimiento</span>
+                    <h3 class="text-red-600 font-bold mb-4 uppercase text-xs italic">Pack Shogun (2x)</h3>
+                    <div class="text-6xl font-bold mb-2 text-white italic">$55.000</div>
+                    <p class="text-stone-500 text-[10px] font-bold uppercase mb-8 italic">2 veces x semana</p>
+                    <ul class="text-[11px] text-stone-300 space-y-4 mb-10 font-bold flex-grow italic">
                         <li><i class="fas fa-star text-red-600 mr-2"></i> 8 Clases de Bujinkan al mes</li>
                         <li><i class="fas fa-star text-red-600 mr-2"></i> <strong>BENEFICIO HIIT:</strong> 2 Clases semanales complementarias</li>
-                        <li><i class="fas fa-star text-red-600 mr-2"></i> <strong>ZEN STRETCHING:</strong> 1 Clase mensual de recuperación</li>
+                        <li><i class="fas fa-star text-red-600 mr-2"></i> <strong>RECUPERACIÓN:</strong> 1 Clase mensual Zen Stretching</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block bg-red-800 text-white py-4 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition">Elegir Shogun</a>
+                    <a href="https://wa.me/541176194825" class="mt-auto block bg-red-800 text-white py-4 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition italic shadow-lg">Elegir Shogun</a>
                 </div>
 
                 <div class="price-card p-10 flex flex-col italic">
-                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs">Prueba Marcial</h3>
-                    <div class="text-4xl font-bold mb-2 text-white">GRATIS</div>
-                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8">Enero y Febrero</p>
-                    <p class="text-[11px] text-stone-500 mb-8">Clase suelta regular: $18.000. Iniciá tu camino este verano sin costo de prueba.</p>
-                    <a href="https://wa.me/541176194825" class="mt-auto block border border-white/10 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition">Reservar</a>
+                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic">Prueba Marcial</h3>
+                    <div class="text-4xl font-bold mb-2 text-white italic">GRATIS</div>
+                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8 italic">Enero y Febrero</p>
+                    <p class="text-[11px] text-stone-500 mb-8 italic">Clase suelta regular: $18.000. Vení a conocer el Kiryū Dōjō sin cargo este verano.</p>
+                    <a href="https://wa.me/541176194825" class="mt-auto block border border-white/10 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition italic">Reservar</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="py-32 px-6 bg-black text-center border-t border-white/5">
-        <h2 class="text-5xl mb-20 italic tracking-tighter uppercase font-bold text-white">Espacio INYO ☯️</h2>
+        <h2 class="text-5xl mb-20 italic tracking-tighter uppercase font-bold text-white italic">Espacio INYO ☯️</h2>
+        
         <div class="grid md:grid-cols-2 gap-20 mb-24 max-w-5xl mx-auto italic">
             <div class="flex flex-col items-center">
-                <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-40 h-40 mb-6 object-contain grayscale invert opacity-50">
-                <p class="text-[11px] uppercase font-bold text-stone-500 tracking-[0.4em] underline underline-offset-8 decoration-red-900">WhatsApp: 11 7619-4825</p>
+                <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-40 h-40 mb-6 object-contain grayscale invert opacity-50 hover:opacity-100 transition duration-500">
+                <p class="text-[11px] uppercase font-bold text-stone-500 tracking-[0.4em] italic underline underline-offset-8 decoration-red-900">WhatsApp: 11 7619-4825</p>
             </div>
-            <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left border-l border-white/5 md:pl-20">
-                <p class="text-sm font-bold uppercase tracking-widest text-red-700 mb-4">Kiryū Dōjō 🐉</p>
-                <p class="text-stone-500 text-sm leading-relaxed">Gdor. Carlos Tejedor 335, Lanús Oeste Centro.</p>
+            <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left border-l border-white/5 md:pl-20 italic">
+                <p class="text-sm font-bold uppercase tracking-widest text-red-700 mb-4 italic">Kiryū Dōjō 🐉</p>
+                <p class="text-stone-500 text-sm leading-relaxed italic">Gdor. Carlos Tejedor 335, Lanús Oeste Centro.</p>
+                <div class="mt-8 flex gap-6 text-stone-600 italic">
+                    <a href="https://www.instagram.com/espacio_inyo" class="hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="mailto:gastburgos@hotmail.com" class="hover:text-white transition"><i class="far fa-envelope text-xl"></i></a>
+                </div>
             </div>
+        </div>
+
+        <div class="border-t border-white/5 pt-20 mt-20">
+            <h3 class="text-[10px] uppercase tracking-[0.8em] text-stone-600 mb-12 font-bold italic">ECOSISTEMA INYO</h3>
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 italic text-stone-500 text-[10px] font-bold tracking-[0.2em] italic">
+                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Masaje Japonés</a>
+                <a href="https://inyodo.github.io/hiit-calistenia/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">HIIT Calistenia</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Clases de Yoga</a>
+                <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Zen Stretching</a>
+            </div>
+            <p class="mt-24 text-[9px] text-stone-800 uppercase tracking-[0.5em] font-bold italic">© 2026 Espacio INYO | Tradición Marcial</p>
         </div>
     </footer>
 
@@ -268,24 +308,16 @@
     </a>
 
     <script>
-        // Función Acordeón Quirúrgica
         function toggleRyu(header) {
             const item = header.parentElement;
             const isActive = item.classList.contains('active');
-            
-            // Cierra otros abiertos para mantener limpieza
             document.querySelectorAll('.ryuha-item').forEach(i => i.classList.remove('active'));
-            
-            if (!isActive) {
-                item.classList.add('active');
-            }
+            if (!isActive) item.classList.add('active');
         }
 
         const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, observerOptions);
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
