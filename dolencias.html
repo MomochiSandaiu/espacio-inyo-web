@@ -71,6 +71,14 @@
             </button>
             <button id="btnLimpiar" class="text-slate-400 text-sm font-medium hover:text-rose-500 transition-colors">Limpiar mapa</button>
         </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-200">
+            <p class="text-slate-400 text-xs uppercase tracking-widest font-bold mb-4">Acceso Rápido Consultorio</p>
+            <div class="bg-white p-4 inline-block rounded-3xl shadow-md border border-slate-100">
+                <img id="qrCode" src="" alt="Código QR INYO" class="w-32 h-32">
+            </div>
+            <p class="text-slate-400 text-[10px] mt-2 italic">inyodo.github.io/espacio-inyo-web/dolencias</p>
+        </div>
     </div>
 
     <script>
@@ -80,9 +88,14 @@
         const btnHombre = document.getElementById('btnHombre');
         const btnEnviar = document.getElementById('btnEnviar');
         const btnLimpiar = document.getElementById('btnLimpiar');
+        const qrImg = document.getElementById('qrCode');
 
         let selectedPoints = new Set();
         let currentGender = 'Mujer';
+
+        // GENERACIÓN AUTOMÁTICA DEL QR
+        const currentURL = "https://inyodo.github.io/espacio-inyo-web/dolencias";
+        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentURL)}&color=1e293b`;
 
         const pointsConfig = [
             // FRONTAL
@@ -125,7 +138,6 @@
             });
         }
 
-        // Estabilidad en la carga
         bodyImg.onload = loadPoints;
         if (bodyImg.complete) loadPoints();
 
@@ -144,8 +156,6 @@
         btnEnviar.onclick = () => {
             if(selectedPoints.size === 0) { alert("Marca al menos una zona."); return; }
             const texto = `Hola Gastón! Soy paciente de Espacio INYO. Indico mis zonas de dolor (${currentGender}): ${Array.from(selectedPoints).join(", ")}.`;
-            
-            // EL NÚMERO CORRECTO ES: 541176194825
             const whatsappUrl = `https://wa.me/541176194825?text=${encodeURIComponent(texto)}`;
             window.open(whatsappUrl, '_blank');
         };
