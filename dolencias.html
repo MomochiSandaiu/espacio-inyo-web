@@ -3,45 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de Dolor - Espacio INYO</title>
+    <title>Evaluación Corporal - Espacio INYO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .pain-map-container { position: relative; display: inline-block; }
         .pain-point {
             position: absolute;
-            width: 26px;
-            height: 26px;
+            width: 26px; height: 26px;
             background-color: rgba(59, 130, 246, 0.45); 
-            border: 2px solid white;
-            border-radius: 50%;
-            cursor: pointer;
-            transform: translate(-50%, -50%);
-            transition: all 0.2s;
-            z-index: 10;
+            border: 2px solid white; border-radius: 50%;
+            cursor: pointer; transform: translate(-50%, -50%);
+            transition: all 0.2s; z-index: 10;
         }
         .pain-point.active {
             background-color: rgba(239, 68, 68, 0.9); 
             box-shadow: 0 0 15px rgba(239, 68, 68, 0.7);
             transform: translate(-50%, -50%) scale(1.2);
-            border-color: #fff;
         }
-        .pain-point::after {
-            content: attr(data-name);
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(30, 41, 59, 0.9);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s;
-        }
-        .pain-point:hover::after, .pain-point.active::after { opacity: 1; }
+        details summary { cursor: pointer; list-style: none; outline: none; }
+        details[open] summary { color: #2563eb; }
+        .checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; text-align: left; }
+        .section-card { background-color: #f8fafc; border-radius: 1.25rem; padding: 1rem; transition: all 0.3s; }
+        .section-card:hover { background-color: #f1f5f9; }
+        textarea:focus { outline: none; border-color: #3b82f6; ring: 2px; ring-color: #3b82f6; }
     </style>
 </head>
 <body class="bg-slate-50 font-sans antialiased">
@@ -59,37 +43,101 @@
             </div>
         </div>
 
-        <div class="flex justify-center">
+        <div class="flex justify-center mb-10">
             <div class="pain-map-container" id="mapContainer">
                 <img id="bodyImg" src="imagen/cuerpo-mujer.png" alt="Esquema corporal" class="max-w-full h-auto rounded-3xl shadow-2xl border-4 border-white">
             </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 mb-6">
+            <h2 class="text-xl font-bold text-slate-700 mb-4 flex items-center justify-center gap-2">
+                <span>📋 Antecedentes y Diagnósticos</span>
+            </h2>
+            
+            <div class="space-y-4">
+                <details class="section-card">
+                    <summary class="font-bold text-slate-700 flex justify-between items-center text-sm md:text-base">
+                        COLUMNA (Vértebras y Médula) <span class="text-blue-500 text-xl">+</span>
+                    </summary>
+                    <div class="checkbox-group mt-4 p-2 border-t border-slate-200 pt-4">
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Cervical"> Cervical</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Dorsal"> Dorsal</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Lumbar"> Lumbar</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Sacro-Coxígeo"> Sacro-Coxígeo</label>
+                        <label class="flex items-center gap-2 text-sm text-rose-600 font-bold"><input type="checkbox" class="diag" value="Nervio Ciático"> Nervio Ciático</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Hernia de Disco"> Hernia de Disco</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Escoliosis"> Escoliosis</label>
+                        <label class="flex items-center gap-2 text-sm font-semibold border-l-2 border-blue-500 pl-2"><input type="checkbox" class="diag" value="Prótesis/Fijación Columna"> Prótesis/Fijación</label>
+                    </div>
+                </details>
+
+                <details class="section-card">
+                    <summary class="font-bold text-slate-700 flex justify-between items-center text-sm md:text-base">
+                        HOMBRO, CODO Y MUÑECA <span class="text-blue-500 text-xl">+</span>
+                    </summary>
+                    <div class="checkbox-group mt-4 p-2 border-t border-slate-200 pt-4">
+                        <label class="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" class="diag" value="Supraespinoso"> Supraespinoso</label>
+                        <label class="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" class="diag" value="Infraespinoso"> Infraespinoso</label>
+                        <label class="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" class="diag" value="Subescapular"> Subescapular</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Codo (Epicondilitis)"> Codo</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Muñeca/Túnel Carpiano"> Muñeca</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Operación Hombro"> Cirugía Hombro</label>
+                    </div>
+                </details>
+
+                <details class="section-card">
+                    <summary class="font-bold text-slate-700 flex justify-between items-center text-sm md:text-base">
+                        CADERA Y RODILLA <span class="text-blue-500 text-xl">+</span>
+                    </summary>
+                    <div class="checkbox-group mt-4 p-2 border-t border-slate-200 pt-4">
+                        <label class="flex items-center gap-2 text-sm text-rose-600 font-bold"><input type="checkbox" class="diag" value="Trocanteritis"> Trocanteritis</label>
+                        <label class="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" class="diag" value="Menisco Interno"> Menisco Interno</label>
+                        <label class="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" class="diag" value="Menisco Externo"> Menisco Externo</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Ligamentos Cruzados"> Lig. Cruzados</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Tendinitis Rodilla"> Tendinitis</label>
+                        <label class="flex items-center gap-2 text-sm border-l-2 border-blue-500 pl-2"><input type="checkbox" class="diag" value="Prótesis Cadera/Rodilla"> Prótesis</label>
+                    </div>
+                </details>
+
+                <details class="section-card">
+                    <summary class="font-bold text-slate-700 flex justify-between items-center text-sm md:text-base">
+                        TOBILLO Y PIES <span class="text-blue-500 text-xl">+</span>
+                    </summary>
+                    <div class="checkbox-group mt-4 p-2 border-t border-slate-200 pt-4">
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Operación Tobillo"> Cirugía Tobillo</label>
+                        <label class="flex items-center gap-2 text-sm text-rose-600 font-bold"><input type="checkbox" class="diag" value="Espolón Calcáneo"> Espolón</label>
+                        <label class="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" class="diag" value="Juanetes"> Juanetes</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Fascitis Plantar"> Fascitis Plantar</label>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 mb-8">
+            <h2 class="text-lg font-bold text-slate-700 mb-3 flex items-center justify-center gap-2">
+                <span>📝 Observaciones Adicionales</span>
+            </h2>
+            <textarea id="txtObservaciones" rows="3" class="w-full bg-slate-50 rounded-2xl p-4 text-slate-600 text-sm border border-slate-200 transition-all" placeholder="Escribe aquí cualquier detalle extra (ej: medicación, hace cuánto tiempo duele, etc)..."></textarea>
         </div>
 
         <div class="mt-8 flex flex-col gap-4 max-w-sm mx-auto">
             <button id="btnEnviar" class="w-full bg-emerald-500 text-white py-4 rounded-2xl font-extrabold text-lg shadow-lg hover:bg-emerald-600 active:scale-95 transition-all flex items-center justify-center gap-2">
                 <span>Enviar Reporte a Gastón</span>
             </button>
-            <button id="btnLimpiar" class="text-slate-400 text-sm font-medium hover:text-rose-500 transition-colors">Limpiar mapa</button>
+            <button id="btnLimpiar" class="text-slate-400 text-sm font-medium hover:text-rose-500 transition-colors">Limpiar mapa y ficha</button>
         </div>
 
-        <div class="mt-12 pt-8 border-t border-slate-200">
-            <p class="text-slate-400 text-xs uppercase tracking-widest font-bold mb-4">Acceso Rápido Consultorio</p>
+        <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col items-center">
             <div class="bg-white p-4 inline-block rounded-3xl shadow-md border border-slate-100">
                 <img id="qrCode" src="" alt="Código QR INYO" class="w-32 h-32">
             </div>
-            <p class="text-slate-400 text-[10px] mt-2 italic">inyodo.github.io/espacio-inyo-web/dolencias</p>
         </div>
     </div>
 
     <script>
-        // --- SECCIÓN DE BLINDAJE (IMPEDIR INSPECCIÓN CURIOXOS) ---
-        document.addEventListener('contextmenu', event => event.preventDefault()); 
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123) return false; 
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; 
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; 
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; 
-        };
+        // BLINDAJE DE SEGURIDAD
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = e => { if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false; };
 
         const bodyImg = document.getElementById('bodyImg');
         const container = document.getElementById('mapContainer');
@@ -98,37 +146,22 @@
         const btnEnviar = document.getElementById('btnEnviar');
         const btnLimpiar = document.getElementById('btnLimpiar');
         const qrImg = document.getElementById('qrCode');
+        const txtObservaciones = document.getElementById('txtObservaciones');
 
         let selectedPoints = new Set();
         let currentGender = 'Mujer';
 
-        // GENERACIÓN AUTOMÁTICA DEL QR
         const currentURL = "https://inyodo.github.io/espacio-inyo-web/dolencias";
         qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentURL)}&color=1e293b`;
 
+        // PUNTOS BLINDADOS AL 68%
         const pointsConfig = [
-            // FRONTAL
             { name: 'Frente/Cabeza', top: '15.5%', left: '26%' }, { name: 'Cuello', top: '22.5%', left: '25%' },
-            { name: 'Hombro Derecho', top: '28%', left: '17%' }, { name: 'Hombro Izquierdo', top: '28%', left: '35.5%' },
-            { name: 'Pecho', top: '29.5%', left: '26%' }, { name: 'Brazo Derecho', top: '36%', left: '13%' },
-            { name: 'Brazo Izquierdo', top: '36%', left: '36.2%' }, { name: 'Abdomen', top: '41%', left: '26%' },
-            { name: 'Muñeca Derecha', top: '50%', left: '9%' }, { name: 'Muñeca Izquierda', top: '50%', left: '39.8%' },
-            { name: 'Cadera', top: '45%', left: '26%' }, { name: 'Muslo Derecho', top: '55.5%', left: '20%' },
-            { name: 'Muslo Izquierdo', top: '55.5%', left: '31%' }, { name: 'Rodilla Derecho', top: '65%', left: '20%' },
-            { name: 'Rodilla Izquierda', top: '65%', left: '31%' }, { name: 'Tobillo Derecho', top: '82.5%', left: '21%' },
-            { name: 'Tobillo Izquierdo', top: '82.5%', left: '30%' },
-
-            // POSTERIOR (Centrado en 68%)
-            { name: 'Nuca', top: '15%', left: '68%' },
-            { name: 'Espalda Alta', top: '27%', left: '68%' },
-            { name: 'Escápula Derecha', top: '27%', left: '62%' },
-            { name: 'Escápula Izquierda', top: '27%', left: '74%' },
-            { name: 'Columna', top: '35%', left: '68%' },
-            { name: 'Región Lumbar', top: '43%', left: '68%' },
-            { name: 'Glúteos', top: '51%', left: '68%' },
-            { name: 'Gemelo Derecho', top: '75%', left: '63%' },
-            { name: 'Gemelo Izquierdo', top: '75%', left: '73%' },
-            { name: 'Talón', top: '88.5%', left: '68%' }
+            { name: 'Hombro Der.', top: '28%', left: '17%' }, { name: 'Hombro Izq.', top: '28%', left: '35.5%' },
+            { name: 'Pecho', top: '29.5%', left: '26%' }, { name: 'Abdomen', top: '41%', left: '26%' },
+            { name: 'Cadera', top: '45%', left: '26%' }, { name: 'Nuca', top: '15%', left: '68%' }, 
+            { name: 'Espalda Alta', top: '27%', left: '68%' }, { name: 'Columna', top: '35%', left: '68%' }, 
+            { name: 'Región Lumbar', top: '43%', left: '68%' }, { name: 'Glúteos', top: '51%', left: '68%' }
         ];
 
         function loadPoints() {
@@ -137,8 +170,7 @@
                 const dot = document.createElement('div');
                 dot.className = 'pain-point';
                 dot.setAttribute('data-name', p.name);
-                dot.style.top = p.top;
-                dot.style.left = p.left;
+                dot.style.top = p.top; dot.style.left = p.left;
                 dot.onclick = () => {
                     dot.classList.toggle('active');
                     selectedPoints.has(p.name) ? selectedPoints.delete(p.name) : selectedPoints.add(p.name);
@@ -153,20 +185,31 @@
         function changeGender(gender) {
             currentGender = gender;
             bodyImg.src = gender === 'Mujer' ? 'imagen/cuerpo-mujer.png' : 'imagen/cuerpo-hombre.png';
-            btnMujer.className = gender === 'Mujer' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
-            btnHombre.className = gender === 'Hombre' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold';
-            selectedPoints.clear();
+            btnMujer.className = gender === 'Mujer' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold hover:bg-slate-50';
+            btnHombre.className = gender === 'Hombre' ? 'px-8 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md' : 'px-8 py-2.5 rounded-xl text-slate-500 font-semibold hover:bg-slate-50';
+            selectedPoints.clear(); loadPoints();
         }
 
         btnMujer.onclick = () => changeGender('Mujer');
         btnHombre.onclick = () => changeGender('Hombre');
-        btnLimpiar.onclick = () => { selectedPoints.clear(); loadPoints(); };
+        
+        btnLimpiar.onclick = () => { 
+            selectedPoints.clear(); 
+            loadPoints();
+            document.querySelectorAll('.diag').forEach(c => c.checked = false);
+            txtObservaciones.value = "";
+        };
 
         btnEnviar.onclick = () => {
-            if(selectedPoints.size === 0) { alert("Marca al menos una zona."); return; }
-            const texto = `Hola Gastón! Soy paciente de Espacio INYO. Indico mis zonas de dolor (${currentGender}): ${Array.from(selectedPoints).join(", ")}.`;
-            const whatsappUrl = `https://wa.me/541176194825?text=${encodeURIComponent(texto)}`;
-            window.open(whatsappUrl, '_blank');
+            const diags = Array.from(document.querySelectorAll('.diag:checked')).map(c => c.value);
+            const obs = txtObservaciones.value.trim();
+            
+            const dolenciasText = selectedPoints.size > 0 ? `Zonas de dolor: ${Array.from(selectedPoints).join(", ")}` : "Sin zonas marcadas";
+            const antecedentesText = diags.length > 0 ? `Antecedentes/Diagnósticos: ${diags.join(", ")}` : "Sin antecedentes clínicos";
+            const obsText = obs ? `Observaciones: ${obs}` : "Sin observaciones adicionales";
+            
+            const texto = `Hola Gastón! Soy paciente de Espacio INYO (${currentGender}).\n\n${dolenciasText}.\n\n${antecedentesText}.\n\n${obsText}.`;
+            window.open(`https://wa.me/541176194825?text=${encodeURIComponent(texto)}`, '_blank');
         };
     </script>
 </body>
