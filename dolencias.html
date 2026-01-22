@@ -25,7 +25,6 @@
             transform: translate(-50%, -50%) scale(1.2);
             border-color: #fff;
         }
-        /* ETIQUETAS RECUPERADAS DEL CÓDIGO BASE */
         .pain-point::after {
             content: attr(data-name);
             position: absolute;
@@ -44,11 +43,17 @@
         }
         .pain-point:hover::after, .pain-point.active::after { opacity: 1; }
 
-        /* ESTILOS FICHA CLÍNICA */
+        /* ESTILOS FICHA TÉCNICA */
         details summary { cursor: pointer; list-style: none; outline: none; }
         details[open] summary { color: #2563eb; font-weight: bold; }
         .checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; text-align: left; }
         .section-card { background-color: #f8fafc; border-radius: 1.25rem; padding: 1rem; transition: all 0.3s; margin-bottom: 0.75rem; border: 1px solid #e2e8f0; }
+        
+        .organ-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; }
+        .organ-table th { padding: 8px; color: #64748b; font-size: 0.7rem; text-transform: uppercase; border-bottom: 2px solid #e2e8f0; }
+        .organ-table td { padding: 8px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+        .organ-table tr:hover { background-color: #f1f5f9; }
+        input[type="checkbox"] { width: 1.1rem; height: 1.1rem; cursor: pointer; }
     </style>
 </head>
 <body class="bg-slate-50 font-sans antialiased">
@@ -72,50 +77,48 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 mb-6">
-            <h2 class="text-xl font-bold text-slate-700 mb-4 flex items-center justify-center gap-2">
-                <span>📋 Antecedentes y Diagnósticos</span>
-            </h2>
+        <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 mb-6 text-left">
+            <h2 class="text-xl font-bold text-slate-700 mb-6 text-center">📋 Antecedentes y Diagnósticos</h2>
             
-            <div class="space-y-2">
+            <div class="space-y-3">
                 <details class="section-card">
-                    <summary class="flex justify-between items-center text-slate-700 font-bold">COLUMNA <span class="text-blue-500 text-xl">+</span></summary>
+                    <summary class="flex justify-between items-center text-slate-700 font-bold italic">COLUMNA Y EXTREMIDADES <span class="text-blue-500 text-xl">+</span></summary>
                     <div class="checkbox-group mt-4 p-2 border-t border-slate-200 pt-4">
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Rectificación Cervical"> Rectif. Cervical</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Hernia Discal"> Hernia Discal</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Protusión"> Protusión</label>
-                        <label class="flex items-center gap-2 text-sm text-rose-600 font-bold"><input type="checkbox" class="diag" value="Nervio Ciático"> Nervio Ciático</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Escoliosis/Cifosis"> Escoliosis/Cifosis</label>
-                        <label class="flex items-center gap-2 text-sm font-semibold border-l-2 border-blue-500 pl-2"><input type="checkbox" class="diag" value="Prótesis Columna"> Tiene Prótesis</label>
-                    </div>
-                </details>
-
-                <details class="section-card">
-                    <summary class="flex justify-between items-center text-slate-700 font-bold">MIEMBRO SUPERIOR <span class="text-blue-500 text-xl">+</span></summary>
-                    <div class="checkbox-group mt-4 p-2 border-t border-slate-200 pt-4">
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Tend. Supraespinoso"> Tend. Supraespinoso</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Cervical"> Cervical</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Dorsal"> Dorsal</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Lumbar"> Lumbar</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Hernia/Protusión"> Hernia/Protusión</label>
+                        <label class="flex items-center gap-2 text-sm text-rose-600 font-bold"><input type="checkbox" class="diag" value="Ciático"> Nervio Ciático</label>
                         <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Manguito Rotador"> Manguito Rotador</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Epicondilitis (Codo)"> Epicondilitis</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Túnel Carpiano"> Túnel Carpiano</label>
+                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Meniscos/Ligamentos"> Meniscos/Ligamentos</label>
+                        <label class="flex items-center gap-2 text-sm font-semibold border-l-2 border-blue-500 pl-2"><input type="checkbox" class="diag" value="Prótesis"> Tiene Prótesis</label>
                     </div>
                 </details>
 
                 <details class="section-card">
-                    <summary class="flex justify-between items-center text-slate-700 font-bold">CADERA Y RODILLA <span class="text-blue-500 text-xl">+</span></summary>
-                    <div class="checkbox-group mt-4 p-2 border-t border-slate-200 pt-4">
-                        <label class="flex items-center gap-2 text-sm text-rose-600 font-bold"><input type="checkbox" class="diag" value="Trocanteritis"> Trocanteritis</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Meniscos"> Meniscos</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Ligamentos Cruzados"> Lig. Cruzados</label>
-                        <label class="flex items-center gap-2 text-sm border-l-2 border-blue-500 pl-2"><input type="checkbox" class="diag" value="Prótesis Inferior"> Prótesis</label>
-                    </div>
-                </details>
-
-                <details class="section-card">
-                    <summary class="flex justify-between items-center text-slate-700 font-bold">PIES <span class="text-blue-500 text-xl">+</span></summary>
-                    <div class="checkbox-group mt-4 p-2 border-t border-slate-200 pt-4">
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Espolón Calcáneo"> Espolón Calcáneo</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Fascitis Plantar"> Fascitis Plantar</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="Juanetes"> Juanetes</label>
+                    <summary class="flex justify-between items-center text-slate-700 font-bold italic">ÓRGANOS Y VÍSCERAS <span class="text-blue-500 text-xl">+</span></summary>
+                    <div class="mt-4 border-t border-slate-200 pt-4 overflow-x-auto">
+                        <table class="organ-table">
+                            <thead>
+                                <tr>
+                                    <th>Órgano / Región</th>
+                                    <th class="text-center">Afección</th>
+                                    <th class="text-center">Cirugía</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Mamas / Senos</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Mamas"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Mamas"></td></tr>
+                                <tr><td>Corazón (Pericardio)</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Corazón"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Corazón"></td></tr>
+                                <tr><td>Pulmones (Pleura)</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Pulmón"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Pulmón"></td></tr>
+                                <tr><td>Hígado / Vesícula</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Hígado"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Hígado"></td></tr>
+                                <tr><td>Bazo / Páncreas</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-BazoPancreas"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-BazoPancreas"></td></tr>
+                                <tr><td>Estómago / Peritoneal</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Estómago"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Estómago"></td></tr>
+                                <tr><td>Intestino Delgado</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-IntesDelgado"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-IntesDelgado"></td></tr>
+                                <tr><td>Intestino Grueso (Colon)</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-IntesGrueso"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-IntesGrueso"></td></tr>
+                                <tr><td>Riñones</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Riñones"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Riñones"></td></tr>
+                                <tr><td>Tracto Genitourinario</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Genitourinario"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Genitourinario"></td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </details>
             </div>
@@ -123,7 +126,7 @@
 
         <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 mb-8 text-left">
             <h2 class="text-lg font-bold text-slate-700 mb-3 ml-2">📝 Observaciones</h2>
-            <textarea id="txtObs" rows="3" class="w-full bg-slate-50 rounded-2xl p-4 text-sm border border-slate-200 outline-none focus:border-blue-500 transition-all" placeholder="Detalles adicionales (tiempo del dolor, medicación, etc)..."></textarea>
+            <textarea id="txtObs" rows="3" class="w-full bg-slate-50 rounded-2xl p-4 text-sm border border-slate-200 outline-none focus:border-blue-500 transition-all" placeholder="Detalles de cirugías, tiempo del dolor, medicación..."></textarea>
         </div>
 
         <div class="mt-8 flex flex-col gap-4 max-w-sm mx-auto">
@@ -141,7 +144,7 @@
     </div>
 
     <script>
-        // BLINDAJE DE SEGURIDAD RECUPERADO
+        // BLINDAJE DE SEGURIDAD
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.onkeydown = e => { if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false; };
 
@@ -160,7 +163,7 @@
         const currentURL = "https://inyodo.github.io/espacio-inyo-web/dolencias";
         qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentURL)}&color=1e293b`;
 
-        // PUNTOS COMPLETOS DEL CÓDIGO BASE BLINDADO (27 puntos)
+        // PUNTOS RECUPERADOS DEL CÓDIGO BASE BLINDADO (27 PUNTOS)
         const pointsConfig = [
             { name: 'Frente/Cabeza', top: '15.5%', left: '26%' }, { name: 'Cuello', top: '22.5%', left: '25%' },
             { name: 'Hombro Derecho', top: '28%', left: '17%' }, { name: 'Hombro Izquierdo', top: '28%', left: '35.5%' },
