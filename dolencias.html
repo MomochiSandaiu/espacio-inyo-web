@@ -49,7 +49,7 @@
                 <div><label class="text-xs font-bold text-slate-400 uppercase">Nombre y Apellido</label><input type="text" id="pNombre" class="form-input"></div>
                 <div><label class="text-xs font-bold text-slate-400 uppercase">Ocupación</label><input type="text" id="pOcupacion" class="form-input"></div>
                 <div><label class="text-xs font-bold text-slate-400 uppercase">Contacto / Celular</label><input type="tel" id="pCel" class="form-input"></div>
-                <div><label class="text-xs font-bold text-slate-400 uppercase">Emergencia (Avisar a:)</label><input type="text" id="pEmergencia" class="form-input"></div>
+                <div><label class="text-xs font-bold text-slate-400 uppercase">Avisar Emergencia a:</label><input type="text" id="pEmergencia" class="form-input"></div>
             </div>
         </div>
 
@@ -95,13 +95,10 @@
                 <summary class="flex justify-between items-center text-slate-700 font-bold italic">ÓRGANOS Y VÍSCERAS <span class="text-blue-500">+</span></summary>
                 <div class="mt-4 border-t border-slate-200 pt-4 overflow-x-auto">
                     <table class="organ-table">
-                        <thead><tr class="text-[10px] text-slate-400"><th>Región</th><th class="text-center">Afec.</th><th class="text-center">Cirug.</th></tr></thead>
+                        <thead><tr class="text-[10px] text-slate-400"><th>Órgano</th><th class="text-center">Afec.</th><th class="text-center">Cirug.</th></tr></thead>
                         <tbody>
                             <tr><td>Mamas/Senos</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Mamas"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Mamas"></td></tr>
-                            <tr><td>Corazón (Pericardio)</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Corazon"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Corazon"></td></tr>
-                            <tr><td>Pulmón (Pleura)</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Pulmon"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Pulmon"></td></tr>
                             <tr><td>Hígado/Vesícula</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Higado"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Higado"></td></tr>
-                            <tr><td>Bazo/Páncreas</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-BazoPancreas"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-BazoPancreas"></td></tr>
                             <tr><td>Estómago/Intestinos</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Digestiva"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Digestiva"></td></tr>
                             <tr><td>Riñones/Tracto Genit.</td><td class="text-center"><input type="checkbox" class="diag" value="Afec-Renal"></td><td class="text-center"><input type="checkbox" class="diag" value="Cir-Renal"></td></tr>
                         </tbody>
@@ -121,20 +118,32 @@
                     </div>
                 </div>
             </details>
+
+            <details class="section-card">
+                <summary class="flex justify-between items-center text-slate-700 font-bold italic">MEDICINAS Y TERAPIAS REALIZADAS <span class="text-blue-500">+</span></summary>
+                <div class="checkbox-group mt-4 p-2 border-t border-slate-200 pt-4">
+                    <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="T-Alopatica"> Alopática</label>
+                    <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="T-Homeopatica"> Homeopática</label>
+                    <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="T-Acupuntura"> Acupuntura</label>
+                    <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="diag" value="T-Shiatsu"> Shiatsu</label>
+                </div>
+            </details>
         </div>
 
         <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-100 mb-8 text-left">
             <h2 class="text-lg font-bold text-slate-700 mb-3 ml-2">📝 Observaciones y Expectativas</h2>
-            <textarea id="txtObs" rows="3" class="w-full bg-slate-50 rounded-2xl p-4 text-sm border border-slate-200 outline-none focus:border-blue-500 transition-all" placeholder="Detalla alergias, semanas de embarazo, medicación actual, etc..."></textarea>
+            <textarea id="txtObs" rows="3" class="w-full bg-slate-50 rounded-2xl p-4 text-sm border border-slate-200 outline-none focus:border-blue-500 transition-all" placeholder="Detalla alergias, semanas de embarazo, medicación, o qué esperas de la terapia..."></textarea>
         </div>
 
         <div class="mt-8 flex flex-col gap-4 max-w-sm mx-auto">
-            <button id="btnEnviar" class="w-full bg-emerald-500 text-white py-4 rounded-2xl font-extrabold text-lg shadow-lg hover:bg-emerald-600 active:scale-95 transition-all">Enviar Reporte Completo</button>
-            <button id="btnLimpiar" class="text-slate-400 text-sm font-medium hover:text-rose-500 transition-colors">Limpiar ficha</button>
+            <button id="btnEnviar" class="w-full bg-emerald-500 text-white py-4 rounded-2xl font-extrabold text-lg shadow-lg hover:bg-emerald-600 active:scale-95 transition-all">Enviar Reporte Integral</button>
+            <button id="btnLimpiar" class="text-slate-400 text-sm font-medium hover:text-rose-500 transition-colors">Borrar selección</button>
         </div>
 
         <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col items-center">
-            <img id="qrCode" src="" alt="QR" class="w-24 h-24 opacity-60">
+            <div class="bg-white p-4 inline-block rounded-3xl shadow-md border border-slate-100">
+                <img id="qrCode" src="" alt="Código QR INYO" class="w-32 h-32">
+            </div>
         </div>
     </div>
 
@@ -210,7 +219,7 @@
             const obs = document.getElementById('txtObs').value.trim();
             const emergencia = document.getElementById('pEmergencia').value;
             
-            let texto = `*FICHA ESPACIO INYO*\n\n👤 *Paciente:* ${nombre || 'No indicado'}\n🛠 *Ocupación:* ${ocupacion || 'No indicado'}\n📍 *Zonas de dolor:* ${Array.from(selectedPoints).join(", ") || "Ninguna"}\n📋 *Antecedentes:* ${diags.join(", ") || "Ninguno"}\n📝 *Obs:* ${obs || "Sin observaciones"}\n🚨 *Emergencia:* ${emergencia || "No indicado"}`;
+            let texto = `*FICHA ESPACIO INYO*\n\n👤 *Paciente:* ${nombre || 'No indicado'}\n🛠 *Ocupación:* ${ocupacion || 'No indicado'}\n📍 *Zonas:* ${Array.from(selectedPoints).join(", ") || "Ninguna"}\n📋 *Ficha:* ${diags.join(", ") || "Ninguna"}\n📝 *Obs:* ${obs || "Sin observaciones"}\n🚨 *Emergencia:* ${emergencia || "No indicado"}`;
 
             window.open(`https://wa.me/541176194825?text=${encodeURIComponent(texto)}`, '_blank');
         };
