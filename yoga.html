@@ -17,9 +17,32 @@
         }
         #menu-toggle:checked ~ #side-menu { transform: translateX(0); }
         #menu-toggle:checked ~ #menu-overlay { display: block; }
+
+        /* Estilo Botón Música Yoga */
+        .music-btn {
+            fixed bottom-8 left-8 w-14 h-14 rounded-full bg-white border border-stone-200 shadow-xl flex items-center justify-center text-stone-900 cursor-pointer z-50 transition-all duration-500;
+        }
+        .music-btn.playing {
+            animation: pulse-yoga 2s infinite;
+            background: #fdfbf9;
+            border-color: #991b1b;
+            color: #991b1b;
+        }
+        @keyframes pulse-yoga {
+            0% { box-shadow: 0 0 0 0 rgba(153, 27, 27, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(153, 27, 27, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(153, 27, 27, 0); }
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <div id="music-control" class="fixed bottom-8 left-8 w-14 h-14 rounded-full bg-white border border-stone-200 shadow-xl flex items-center justify-center text-stone-900 cursor-pointer z-50 transition-all duration-300" onclick="toggleMusic()">
+        <i id="music-icon" class="fas fa-leaf"></i>
+    </div>
+    <audio id="yoga-audio" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" type="audio/mpeg">
+    </audio>
 
     <input type="checkbox" id="menu-toggle" class="hidden">
     <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/50 backdrop-blur-md p-3 rounded-sm border border-stone-200 hover:bg-stone-900 hover:text-white transition duration-300 text-stone-900">
@@ -176,6 +199,28 @@
     <a href="https://wa.me/541176194825" class="fixed bottom-8 right-8 bg-stone-900 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-transform z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <script>
+        function toggleMusic() {
+            const audio = document.getElementById('yoga-audio');
+            const btn = document.getElementById('music-control');
+            const icon = document.getElementById('music-icon');
+
+            if (audio.paused) {
+                audio.play();
+                btn.style.animation = "pulse-yoga 2s infinite";
+                btn.style.color = "#991b1b";
+                btn.style.borderColor = "#991b1b";
+                icon.className = "fas fa-spa"; // Cambia el icono a uno más zen
+            } else {
+                audio.pause();
+                btn.style.animation = "none";
+                btn.style.color = "#1c1917";
+                btn.style.borderColor = "#e7e5e4";
+                icon.className = "fas fa-leaf";
+            }
+        }
+    </script>
 
 </body>
 </html>
