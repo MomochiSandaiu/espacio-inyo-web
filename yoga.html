@@ -19,15 +19,6 @@
         #menu-toggle:checked ~ #menu-overlay { display: block; }
 
         /* Estilo Botón Música Yoga */
-        .music-btn {
-            fixed bottom-8 left-8 w-14 h-14 rounded-full bg-white border border-stone-200 shadow-xl flex items-center justify-center text-stone-900 cursor-pointer z-50 transition-all duration-500;
-        }
-        .music-btn.playing {
-            animation: pulse-yoga 2s infinite;
-            background: #fdfbf9;
-            border-color: #991b1b;
-            color: #991b1b;
-        }
         @keyframes pulse-yoga {
             0% { box-shadow: 0 0 0 0 rgba(153, 27, 27, 0.4); }
             70% { box-shadow: 0 0 0 15px rgba(153, 27, 27, 0); }
@@ -40,8 +31,9 @@
     <div id="music-control" class="fixed bottom-8 left-8 w-14 h-14 rounded-full bg-white border border-stone-200 shadow-xl flex items-center justify-center text-stone-900 cursor-pointer z-50 transition-all duration-300" onclick="toggleMusic()">
         <i id="music-icon" class="fas fa-leaf"></i>
     </div>
+    
     <audio id="yoga-audio" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" type="audio/mpeg">
+        <source src="audio/calming.mp3" type="audio/mpeg">
     </audio>
 
     <input type="checkbox" id="menu-toggle" class="hidden">
@@ -211,7 +203,7 @@
                 btn.style.animation = "pulse-yoga 2s infinite";
                 btn.style.color = "#991b1b";
                 btn.style.borderColor = "#991b1b";
-                icon.className = "fas fa-spa"; // Cambia el icono a uno más zen
+                icon.className = "fas fa-spa";
             } else {
                 audio.pause();
                 btn.style.animation = "none";
